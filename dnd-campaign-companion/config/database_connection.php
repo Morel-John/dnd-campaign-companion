@@ -1,5 +1,5 @@
 <?php
-# load .env for login
+# load .env for login details
 function loadEnv($path) {
     if (!file_exists($path)) return;
     
@@ -13,7 +13,7 @@ function loadEnv($path) {
 
 loadEnv(__DIR__ . '/../.env');
 
-# Enter variable from .env file
+# Insert variable from .env file
 $host = $_ENV['DB_HOST'] ?? 'localhost';
 $dbname = $_ENV['DB_NAME'] ?? '';
 $user = $_ENV['DB_USER'] ?? 'root';

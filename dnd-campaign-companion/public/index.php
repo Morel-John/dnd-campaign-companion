@@ -7,11 +7,17 @@ require_once '../src/Models/Quest.php';
 require_once '../src/Models/Race.php';
 require_once '../src/Models/Town.php';
 require_once '../src/Models/Class.php';
+require_once '../src/Models/Profession.php';
+require_once '../src/Models/Alignment.php';
+require_once '../src/Models/Status.php';
+require_once '../src/Models/Size.php';
 
+# Save current page in variable
 $page = $_GET['page'] ?? 'home';
 
 require_once '../templates/header.php';
 
+# Use page-variable to look what has to be loaded
 switch ($page) {
   case 'home':
     $npcs = getAllNpcs($pdo);
@@ -22,10 +28,18 @@ switch ($page) {
     $selectedTown = 1;
     $selectedParent = 1;
     $selectedClass = 1;
+    $selectedProfession = 1;
+    $selectedStatus = 1; 
+    $selectedSizeId = 1;
 
     $parent_races = getAllParenraces($pdo);
     $towns = getAllTowns($pdo);
     $classes = getAllClasses($pdo);
+    $professions = getAllProfession($pdo);
+    $alignments = getAllAlignment($pdo);
+    $status = getAllNpcStatus($pdo);
+    $sizes = getAllSizes($pdo);
+    $information =getInformation($pdo);
     require '../templates/npc_form.php';
     break;
 

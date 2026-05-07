@@ -10,6 +10,7 @@ require '../config/helpers.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>D&D Campaign Companion</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 
     <!-- TODO: Styles noch auslagern und optimieren -->
     <style>

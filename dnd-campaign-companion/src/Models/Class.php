@@ -6,5 +6,5 @@ function getAllClasses($pdo)
     ORDER BY 
     classname ASC";
     
-    return prepSql($pdo, $sql)->fetchall();
+    return prepSql($pdo, $sql)->fetchAll();
 }

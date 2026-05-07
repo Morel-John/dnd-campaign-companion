@@ -8,3 +8,10 @@ function getAllNpcs($pdo)
 
     return prepSql($pdo,$sql)->fetchAll();
 }
+
+function getInformation($pdo){
+    $sql="SELECT npcId, information
+    FROM npc";
+
+    return prepSql($pdo,$sql)->fetchAll();
+  }

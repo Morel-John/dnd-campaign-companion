@@ -1,6 +1,6 @@
 <?php
-require '../config/lang_function.php';
-require '../config/helpers.php';
+require BASE_PATH .'/app/config/lang_function.php';
+require BASE_PATH .'/app/config/helpers.php';
 ?>
 
 <!DOCTYPE html>

@@ -11,7 +11,7 @@ function loadEnv($path) {
     }
 }
 
-loadEnv(__DIR__ . '/../.env');
+loadEnv(BASE_PATH . '/.env');
 
 # Insert variable from .env file
 $host = $_ENV['DB_HOST'] ?? 'localhost';

@@ -1,13 +1,9 @@
 <?php
-
-/** * Definiert die "Home Base" des Projekts. 
- * Ermöglicht sichere Dateizugriffe auf /src, /config und /templates, 
- * ohne mühsame "../" Pfade nutzen zu müssen.
- */
+## Define home base of the project, for saving time with paths and reducing error potential and for security
 define('BASE_PATH', dirname(__DIR__));
 require_once BASE_PATH . '/app/config/database_connection.php';
 
-# Required models 
+## Required models  
 require_once BASE_PATH . '/app/Models/Alignments.php';
 require_once BASE_PATH . '/app/Models/Classes.php';
 require_once BASE_PATH . '/app/Models/Npcs.php';
@@ -19,12 +15,12 @@ require_once BASE_PATH . '/app/Models/Sizes.php';
 require_once BASE_PATH . '/app/Models/Status.php';
 require_once BASE_PATH . '/app/Models/Towns.php';
 
-# Save current page in variable
+## Save current page in variable
 $page = $_GET['page'] ?? 'home';
 
 require_once BASE_PATH . '/app/Views//header.php';
 
-# Use page-variable to look what has to be loaded
+## Use page-variable to look what has to be loaded
 switch ($page) {
   case 'home':
     $npcs = Npcs::getAll($pdo);

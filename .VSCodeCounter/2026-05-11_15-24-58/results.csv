@@ -1,0 +1,34 @@
+"filename", "language", "MS SQL", "Markdown", "PHP", "PostCSS", "comment", "blank", "total"
+"\\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\Database\dnd-campaign-companion.sql", "MS SQL", 538, 0, 0, 0, 10, 50, 598
+"\\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\README.md", "Markdown", 0, 1, 0, 0, 0, 1, 2
+"\\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Controllers\NpcController.php", "PHP", 0, 0, 28, 0, 0, 2, 30
+"\\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Models\Alignments.php", "PHP", 0, 0, 21, 0, 0, 3, 24
+"\\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Models\Classes.php", "PHP", 0, 0, 16, 0, 0, 3, 19
+"\\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Models\Logbook.php", "PHP", 0, 0, 15, 0, 0, 1, 16
+"\\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Models\Npcs.php", "PHP", 0, 0, 56, 0, 1, 7, 64
+"\\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Models\Parentraces.php", "PHP", 0, 0, 17, 0, 0, 2, 19
+"\\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Models\Professions.php", "PHP", 0, 0, 16, 0, 0, 3, 19
+"\\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Models\Quests.php", "PHP", 0, 0, 22, 0, 0, 2, 24
+"\\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Models\Races.php", "PHP", 0, 0, 18, 0, 0, 2, 20
+"\\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Models\Sizes.php", "PHP", 0, 0, 17, 0, 0, 3, 20
+"\\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Models\Sourcebook.php", "PHP", 0, 0, 12, 0, 0, 2, 14
+"\\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Models\Status.php", "PHP", 0, 0, 18, 0, 0, 2, 20
+"\\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Models\Subclass.php", "PHP", 0, 0, 15, 0, 0, 2, 17
+"\\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Models\Towns.php", "PHP", 0, 0, 16, 0, 0, 2, 18
+"\\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Models\User.php", "PHP", 0, 0, 13, 0, 0, 2, 15
+"\\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Views\footer.php", "PHP", 0, 0, 4, 0, 0, 0, 4
+"\\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Views\header.php", "PHP", 0, 0, 42, 0, 0, 8, 50
+"\\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Views\home.php", "PHP", 0, 0, 19, 0, 0, 4, 23
+"\\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Views\logbook.php", "PHP", 0, 0, 0, 0, 0, 1, 1
+"\\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Views\npcFormFeedback.php", "PHP", 0, 0, 17, 0, 1, 1, 19
+"\\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Views\npc_form.php", "PHP", 0, 0, 156, 0, 0, 13, 169
+"\\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Views\quest_list.php", "PHP", 0, 0, 29, 0, 0, 0, 29
+"\\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Views\race_detail.php", "PHP", 0, 0, 25, 0, 0, 0, 25
+"\\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\config\database_connection.php", "PHP", 0, 0, 27, 0, 0, 8, 35
+"\\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\config\helpers.php", "PHP", 0, 0, 10, 0, 0, 0, 10
+"\\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\config\lang\de.php", "PHP", 0, 0, 23, 0, 0, 2, 25
+"\\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\config\lang\en.php", "PHP", 0, 0, 11, 0, 0, 1, 12
+"\\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\config\lang_function.php", "PHP", 0, 0, 28, 0, 0, 8, 36
+"\\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\public\assets\css\style.css", "PostCSS", 0, 0, 0, 27, 4, 4, 35
+"\\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\public\index.php", "PHP", 0, 0, 73, 0, 0, 15, 88
+"Total", "-", 538, 1, 764, 27, 16, 154, 1500

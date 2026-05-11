@@ -5,11 +5,7 @@ class Parentraces
         public string $name,
         public int $bookId,
         public ?int $id = null
-    ) {
-        $this->id = $id;
-        $this->name = $name;
-        $this->bookId = $bookId;
-    }
+    ) {}
     public static function getAllParenraces($pdo): array
     {
         $sql = "SELECT parentraceId, parentracename 

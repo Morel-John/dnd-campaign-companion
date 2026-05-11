@@ -4,10 +4,7 @@ class Status
   public function __construct(
     public string $name,
     public ?int $id = null
-  ) {
-    $this->id = $id;
-    $this->name = $name;
-  }
+  ) {}
   public static function getAllNpcStatus($pdo): array
   {
     $sql = "SELECT *

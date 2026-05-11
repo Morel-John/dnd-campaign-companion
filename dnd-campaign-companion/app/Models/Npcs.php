@@ -14,19 +14,7 @@ class Npcs
         public int $alignmentId,
         public int $sizeId,
         public ?int $id = null  ## Has to be listed as last since it can be null
-    ) {
-        $this->id = $id;
-        $this->name = $name;
-        $this->information = $information;
-        $this->image = $image;
-        $this->townId = $townId;
-        $this->raceId = $raceId;
-        $this->professionId = $professionId;
-        $this->classId = $classId;
-        $this->statusId = $statusId;
-        $this->alignmentId = $alignmentId;
-        $this->sizeId = $sizeId;
-    }
+    ) {}
 
     public static function getAll($pdo): array
     {
@@ -44,5 +32,32 @@ class Npcs
                 FROM npc";
 
         return prepSql($pdo, $sql)->fetchAll();
+    }
+
+    ## Function to insert new NPCs
+    public static function create($pdo, array $data): bool
+    {
+        try {
+            $sql = "INSERT INTO npc (npcname, parentraceId, townId, classId, professionId, alignmentId, statusId, sizeId, information, image)
+                    VALUES (:name,:parentrace,:town,:class,:profession,:alignment,:status,:size,:info,:image)";
+
+            $stmt = prepSql($pdo, $sql, [
+                'name'          => $data['name'],
+                'parentrace'    => $data['parentrace'],
+                'town'          => $data['town'],
+                'class'         => $data['class'],
+                'profession'    => $data['profession'],
+                'alignment'     => $data['alignment'],
+                'status'        => $data['status'],
+                'size'          => $data['size'],
+                'info'          => $data['info'],
+                'image'         => $data['image']
+            ]);
+            return $stmt->rowCount() > 0;
+        } catch (PDOException $e) {
+            // die("Dungeon-Master-Fehler: " . $e->getMessage());
+            error_log("Database error: When creating new NPC: " . $e->getMessage());
+            return false;
+        }
     }
 }

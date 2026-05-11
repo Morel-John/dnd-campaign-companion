@@ -5,11 +5,7 @@ class Sizes
     public string $name,
     public string $image,
     public ?int $id = null
-  ) {
-    $this->id = $id;
-    $this->name = $name;
-    $this->image = $image;
-  }
+  ) {}
 
   public static function getAll($pdo): array
   {

@@ -2,6 +2,8 @@
 ## Define home base of the project, for saving time with paths and reducing error potential and for security
 define('BASE_PATH', dirname(__DIR__));
 require_once BASE_PATH . '/app/config/database_connection.php';
+require BASE_PATH . '/app/config/helpers.php';
+require BASE_PATH . '/app/config/lang_function.php';
 
 ## Required models  
 require_once BASE_PATH . '/app/Models/Alignments.php';
@@ -15,11 +17,26 @@ require_once BASE_PATH . '/app/Models/Sizes.php';
 require_once BASE_PATH . '/app/Models/Status.php';
 require_once BASE_PATH . '/app/Models/Towns.php';
 
+## Required controllers
+require_once BASE_PATH . '/app/Controllers/NpcController.php';
+
+## Saving action in variable
+$action = $_GET['action'] ?? null;
+
+## If any action ongoing select right case
+if ($action) {
+  switch ($action) {
+    case 'npc_save':
+      NpcController::handleSave($pdo);
+      break;
+  }
+}
+
+## Header
+require_once BASE_PATH . '/app/Views/header.php';
+
 ## Save current page in variable
-$page = $_GET['page'] ?? 'home';
-
-require_once BASE_PATH . '/app/Views//header.php';
-
+$page   = $_GET['page'] ?? 'home';
 ## Use page-variable to look what has to be loaded
 switch ($page) {
   case 'home':
@@ -36,15 +53,20 @@ switch ($page) {
     $selectedSizeId = 1;
 
     $parent_races = Parentraces::getAllParenraces($pdo);
-    $towns = Towns::getAll($pdo);
-    $classes = Classes::getAll($pdo);
-    $professions = Profession::getAll($pdo);
-    $alignments = Alignment::getAll($pdo);
-    $status = Status::getAllNpcStatus($pdo);
-    $sizes = Sizes::getAll($pdo);
-    $information = Npcs::getInfo($pdo);
+    $towns        = Towns::getAll($pdo);
+    $classes      = Classes::getAll($pdo);
+    $professions  = Profession::getAll($pdo);
+    $alignments   = Alignment::getAll($pdo);
+    $status       = Status::getAllNpcStatus($pdo);
+    $sizes        = Sizes::getAll($pdo);
+    $information  = Npcs::getInfo($pdo);
     require BASE_PATH . '/app/Views/npc_form.php';
     break;
+
+  case 'feedback':
+    require BASE_PATH . '/app/Views/npcFormFeedback.php';
+    break;
+
 
   case 'quest_list':
     $quests = Quests::getAll($pdo);

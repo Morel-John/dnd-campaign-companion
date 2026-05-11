@@ -10,13 +10,6 @@ class Quests
         public int $statusId,
         public ?int $id = null
     ) {
-        $this->id = $id;
-        $this->name = $name;
-        $this->description = $description;
-        $this->reward = $reward;
-        $this->npcId = $npcId;
-        $this->townId = $townId;
-        $this->statusId = $statusId;
     }
     public static function getAll($pdo): array
     {

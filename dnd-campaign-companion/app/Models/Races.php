@@ -6,12 +6,7 @@ class Races
         public int $raceId,
         public int $bookId,
         public ?int $id = null
-    ) {
-        $this->id = $id;
-        $this->name = $name;
-        $this->raceId = $raceId;
-        $this->bookId = $bookId;
-    }
+    ) {}
     public static function getAllRaces($pdo): array
     {
         $sql = "SELECT pr.parentracename, r.racename,b.bookname,pr.parentraceId

@@ -4,10 +4,7 @@ class Profession
     public function __construct(
         public ?string $name = null,
         public ?int $id = null
-    ) {
-        $this->id = $id;
-        $this->name = $name;
-    }
+    ) {}
 
     public static function getAll($pdo): array
     {

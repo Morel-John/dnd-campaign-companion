@@ -1,0 +1,73 @@
+Date : 2026-05-11 15:24:58
+Directory : \\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It
+Total : 32 files,  1330 codes, 16 comments, 154 blanks, all 1500 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| PHP      |         29 |        764 |          2 |         99 |        865 |
+| MS SQL   |          1 |        538 |         10 |         50 |        598 |
+| PostCSS  |          1 |         27 |          4 |          4 |         35 |
+| Markdown |          1 |          1 |          0 |          1 |          2 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                     | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                        |         32 |      1,330 |         16 |        154 |      1,500 |
+| dnd-campaign-companion                                                                                                   |         32 |      1,330 |         16 |        154 |      1,500 |
+| dnd-campaign-companion (Files)                                                                                           |          1 |          1 |          0 |          1 |          2 |
+| dnd-campaign-companion\Database                                                                                          |          1 |        538 |         10 |         50 |        598 |
+| dnd-campaign-companion\app                                                                                               |         28 |        691 |          2 |         84 |        777 |
+| dnd-campaign-companion\app\Controllers                                                                                   |          1 |         28 |          0 |          2 |         30 |
+| dnd-campaign-companion\app\Models                                                                                        |         14 |        272 |          1 |         36 |        309 |
+| dnd-campaign-companion\app\Views                                                                                         |          8 |        292 |          1 |         27 |        320 |
+| dnd-campaign-companion\app\config                                                                                        |          5 |         99 |          0 |         19 |        118 |
+| dnd-campaign-companion\app\config (Files)                                                                                |          3 |         65 |          0 |         16 |         81 |
+| dnd-campaign-companion\app\config\lang                                                                                   |          2 |         34 |          0 |          3 |         37 |
+| dnd-campaign-companion\public                                                                                            |          2 |        100 |          4 |         19 |        123 |
+| dnd-campaign-companion\public (Files)                                                                                    |          1 |         73 |          0 |         15 |         88 |
+| dnd-campaign-companion\public\assets                                                                                     |          1 |         27 |          4 |          4 |         35 |
+| dnd-campaign-companion\public\assets\css                                                                                 |          1 |         27 |          4 |          4 |         35 |
++--------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                                                 | language | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| \\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\Database\dnd-campaign-companion.sql | MS SQL   |        538 |         10 |         50 |        598 |
+| \\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\README.md                           | Markdown |          1 |          0 |          1 |          2 |
+| \\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Controllers\NpcController.php   | PHP      |         28 |          0 |          2 |         30 |
+| \\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Models\Alignments.php           | PHP      |         21 |          0 |          3 |         24 |
+| \\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Models\Classes.php              | PHP      |         16 |          0 |          3 |         19 |
+| \\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Models\Logbook.php              | PHP      |         15 |          0 |          1 |         16 |
+| \\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Models\Npcs.php                 | PHP      |         56 |          1 |          7 |         64 |
+| \\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Models\Parentraces.php          | PHP      |         17 |          0 |          2 |         19 |
+| \\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Models\Professions.php          | PHP      |         16 |          0 |          3 |         19 |
+| \\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Models\Quests.php               | PHP      |         22 |          0 |          2 |         24 |
+| \\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Models\Races.php                | PHP      |         18 |          0 |          2 |         20 |
+| \\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Models\Sizes.php                | PHP      |         17 |          0 |          3 |         20 |
+| \\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Models\Sourcebook.php           | PHP      |         12 |          0 |          2 |         14 |
+| \\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Models\Status.php               | PHP      |         18 |          0 |          2 |         20 |
+| \\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Models\Subclass.php             | PHP      |         15 |          0 |          2 |         17 |
+| \\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Models\Towns.php                | PHP      |         16 |          0 |          2 |         18 |
+| \\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Models\User.php                 | PHP      |         13 |          0 |          2 |         15 |
+| \\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Views\footer.php                | PHP      |          4 |          0 |          0 |          4 |
+| \\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Views\header.php                | PHP      |         42 |          0 |          8 |         50 |
+| \\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Views\home.php                  | PHP      |         19 |          0 |          4 |         23 |
+| \\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Views\logbook.php               | PHP      |          0 |          0 |          1 |          1 |
+| \\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Views\npcFormFeedback.php       | PHP      |         17 |          1 |          1 |         19 |
+| \\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Views\npc_form.php              | PHP      |        156 |          0 |         13 |        169 |
+| \\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Views\quest_list.php            | PHP      |         29 |          0 |          0 |         29 |
+| \\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\Views\race_detail.php           | PHP      |         25 |          0 |          0 |         25 |
+| \\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\config\database_connection.php  | PHP      |         27 |          0 |          8 |         35 |
+| \\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\config\helpers.php              | PHP      |         10 |          0 |          0 |         10 |
+| \\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\config\lang\de.php              | PHP      |         23 |          0 |          2 |         25 |
+| \\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\config\lang\en.php              | PHP      |         11 |          0 |          1 |         12 |
+| \\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\app\config\lang_function.php        | PHP      |         28 |          0 |          8 |         36 |
+| \\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\public\assets\css\style.css         | PostCSS  |         27 |          4 |          4 |         35 |
+| \\wsl.localhost\Ubuntu\home\john\DockerContainer\htdocs\Do_It\dnd-campaign-companion\public\index.php                    | PHP      |         73 |          0 |         15 |         88 |
+| Total                                                                                                                    |          |      1,330 |         16 |        154 |      1,500 |
++--------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+

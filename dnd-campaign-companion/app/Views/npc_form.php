@@ -1,7 +1,7 @@
     <div>
         <h2 style="text-align:center;">Neuen NPC in die Archive eintragen</h2>
 
-        <form method="POST" action="" style="display: flex; flex-direction: column; gap: 15px;">
+        <form method="POST" action="index.php?page=npc_form&action=npc_save" style="display: flex; flex-direction: column; gap: 15px;">
 
             <label>Name</label>
             <input type="text" name="npcname" required style="padding: 10px;">
@@ -36,7 +36,7 @@
                 <?php if (!empty($towns)):
                     foreach ($towns as $town): ?>
                         <option
-                            value=" <?= e($town['townId']) ?>"
+                            value="<?= e($town['townId']) ?>"
                             <?= ($town['townId'] == $selectedTown) ? 'selected' : '' ?>>
                             <?= e($town['townname']) ?>
                         </option>
@@ -52,7 +52,7 @@
                 <?php if (!empty($classes)): ?>
                     <?php foreach ($classes as $class): ?>
                         <option
-                            value=" <?= e($class['classId']) ?>"
+                            value="<?= e($class['classId']) ?>"
                             <?= ($class['classId'] == $selectedClass) ? 'selected' : '' ?>>
                             <?= e($class['classname']) ?>
                         </option>
@@ -68,7 +68,7 @@
                 <?php if (!empty($professions)): ?>
                     <?php foreach ($professions as $profession): ?>
                         <option
-                            value=" <?php e($profession['professionId']) ?>"
+                            value="<?= e($profession['professionId']) ?>"
                             <?= ($profession['professionId'] == $selectedProfession) ? 'selected' : '' ?>>
                             <?= e($profession['professionname']) ?>
                         </option>
@@ -155,15 +155,15 @@
 
             <!-- Upload -->
             <label>Uploead picture</label>
-            <input type="file" name="bild_upload" accept="image/png, image/jpeg, image/jpg" style="padding: 10px; border: 1px solid #8d6e63;">
+            <input type="file" name="image" accept="image/png, image/jpeg, image/jpg" style="padding: 10px; border: 1px solid #8d6e63;">
             
-            <!-- Button -->
+            <!-- Submit Button -->
             <div>
                 <button type="submit" style="text-align:center">Submit changes</button>
             </div>
             
-            <!-- Button -->
+            <!-- Discard Button -->
             <div>
-                <a id="edit-btn" href="XXXXXXXXX" style="text-align:center" >Discard changes</a>
+                <a id="edit-btn" href="index.php?page=home" style="text-align:center" >Discard changes</a>
             </div>
         </form>

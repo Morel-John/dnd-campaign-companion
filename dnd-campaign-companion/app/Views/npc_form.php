@@ -1,10 +1,18 @@
-    <div>
+   <?php
+     $formAction = isset($npc) ? 'npc_update' : 'npc_save';
+   ?>
         <h2 style="text-align:center;">Neuen NPC in die Archive eintragen</h2>
 
-        <form method="POST" action="index.php?page=npc_form&action=npc_save" style="display: flex; flex-direction: column; gap: 15px;">
+        <form method="POST" action="index.php?page=npc_form&action=<?=$formAction ?>" enctype="multipart/form-data" >
+
+            <?php
+              if (isset($npc)):?>
+                <input type="hidden" name="npcId" value="<?=  e($npc['npcId']) ?>">
+                <?php endif; ?>
+                <input type="hidden" name="current_image" value="<?= e($npc['image'] ?? 'assets/img/npc/default.png') ?>">
 
             <label>Name</label>
-            <input type="text" name="npcname" required style="padding: 10px;">
+            <input type="text" name="npcname" value="<?= e($npc['npcname'] ?? '') ?>" required style="padding: 10px;">
 
             <!-- Dropdown menu -->
             <label>Race</label>
@@ -37,7 +45,7 @@
                     foreach ($towns as $town): ?>
                         <option
                             value="<?= e($town['townId']) ?>"
-                            <?= ($town['townId'] == $selectedTown) ? 'selected' : '' ?>>
+                            <?= ($town['townId'] ==  $selectedTown) ? 'selected' : '' ?>>
                             <?= e($town['townname']) ?>
                         </option>
                     <?php endforeach; ?>
@@ -94,7 +102,7 @@
                             name="alignmentId"
                             id="align_<?= e($alignment['alignmentId']) ?>"
                             value="<?= e($alignment['alignmentId']) ?>"
-                            <?= ($alignment['alignmentId'] == ($selectedAlignmentId ?? 1)) ? 'checked' : '' ?>>
+                            <?= ($alignment['alignmentId'] == $selectedAlignment) ? 'checked' : '' ?>>
                         <label for="align_<?= e($alignment['alignmentId']) ?>">
                             <?= e($alignment['alignmentname']) ?>
                         </label>
@@ -115,7 +123,7 @@
                             name="statusId"
                             id="status_<?= e($statu['statusId']) ?>"
                             value="<?= e($statu['statusId']) ?>"
-                            <?= ($statu['statusId'] == ($selectedStatusId ?? 1)) ? 'checked' : '' ?>>
+                            <?= ($statu['statusId'] == $selectedStatus) ? 'checked' : '' ?>>
                         <label for="status_<?= e($statu['statusId']) ?>">
                             <?= e($statu['statusname']) ?>
                         </label>
@@ -137,7 +145,7 @@
                                 id="size_<?= e($size['sizeId']) ?>"
                                 value="<?= e($size['sizeId']) ?>"
                                 class="hidden-radio"
-                                <?= ($size['sizeId'] == ($selectedSizeId ?? 1)) ? 'checked' : '' ?>>
+                                <?= ($size['sizeId'] == $selectedSizeId) ? 'checked' : '' ?>>
                             <label for="size_<?= e($size['sizeId']) ?>" class="box-label">
                                 <img src="<?= e($size['image']) ?>" alt="<?= e($size['sizename']) ?>">
                                 <span><?= e($size['sizename']) ?></span>
@@ -151,15 +159,17 @@
 
             <!-- Textfield -->
             <label for="information">Information</label>
-            <textarea id="information" name="information" rows="8" cols="20">-- Enter informations here --</textarea>
+            <textarea id="information" name="information" rows="8" cols="20"><?= $selectedInformation  ?></textarea>
 
             <!-- Upload -->
-            <label>Uploead picture</label>
-            <input type="file" name="image" accept="image/png, image/jpeg, image/jpg" style="padding: 10px; border: 1px solid #8d6e63;">
+            <label>Upload picture</label>
+            <input type="file" name="image" accept="image/*" style="padding: 10px; border: 1px solid #8d6e63;">
             
             <!-- Submit Button -->
             <div>
-                <button type="submit" style="text-align:center">Submit changes</button>
+                <button type="submit" style="text-align:center">
+                    <?= isset($npc) ? 'Submit changes' : 'create NPC' ?>
+                </button>
             </div>
             
             <!-- Discard Button -->

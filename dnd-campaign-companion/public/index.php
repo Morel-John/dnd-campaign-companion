@@ -29,6 +29,10 @@ if ($action) {
     case 'npc_save':
       NpcController::handleSave($pdo);
       break;
+
+    case 'npc_update':
+      NpcController::update($pdo);
+      break;
   }
 }
 
@@ -45,12 +49,32 @@ switch ($page) {
     break;
 
   case 'npc_form':
+    $npcId = $_GET['id'] ?? null;
+    $npc = null;
+
     $selectedTown = 1;
     $selectedParent = 1;
     $selectedClass = 1;
     $selectedProfession = 1;
+    $selectedAlignment =1;
     $selectedStatus = 1;
     $selectedSizeId = 1;
+    $selectedInformation = "-- Enter information here --";
+
+    if ($npcId) {
+      $npc = Npcs::getById($pdo, (int)$npcId);
+
+      if ($npc) {
+        $selectedTown         = $npc['townId'];
+        $selectedParent       = $npc['parentraceId'];
+        $selectedClass        = $npc['classId'];
+        $selectedProfession   = $npc['professionId'];
+        $selectedAlignment    = $npc['alignmentId'];
+        $selectedStatus       = $npc['statusId'];
+        $selectedSizeId       = $npc['sizeId'];
+        $selectedInformation  = $npc['information'];
+      }
+    }
 
     $parent_races = Parentraces::getAllParenraces($pdo);
     $towns        = Towns::getAll($pdo);
@@ -66,7 +90,6 @@ switch ($page) {
   case 'feedback':
     require BASE_PATH . '/app/Views/npcFormFeedback.php';
     break;
-
 
   case 'quest_list':
     $quests = Quests::getAll($pdo);

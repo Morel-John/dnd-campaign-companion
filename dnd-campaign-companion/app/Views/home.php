@@ -10,11 +10,14 @@
         <?php foreach ($npcs as $npc): ?>
             <div class="npc-card" style="border: 1px solid #ccc; padding: 10px; text-align: center; border-radius: 8px;">
                 <div class="image-placeholder">
-                    <span style="font-size: 2rem;"><img style="width:50px" src="<?= e($npc['image'] ?? BASE_PATH .'/public/assets/img/npc/default.png') ?>" </span>
+                    <span style="font-size: 2rem;"><img style="width:50px" src="<?= e($npc['image'] ?? BASE_PATH . '/public/assets/img/npc/default.png') ?>" </span>
                 </div>
                 <strong style="display: block; margin-bottom: 5px;">
                     <?= e($npc['npcname']) ?>
                 </strong>
+                <div>
+                    <a id="edit-btn" href="index.php?page=npc_form&id=<?= e($npc['npcId']) ?>">Edit</a>
+                </div>
 
             </div>
         <?php endforeach; ?>

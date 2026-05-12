@@ -34,6 +34,14 @@ class Npcs
         return prepSql($pdo, $sql)->fetchAll();
     }
 
+    public static function getById($pdo, int $id){
+        $sql = "SELECT *
+                FROM npc
+                WHERE npcId =:id";
+        
+        return prepSql($pdo,$sql, ['id'=> $id])->fetch();
+    }
+
     ## Function to insert new NPCs
     public static function create($pdo, array $data): bool
     {
@@ -57,6 +65,43 @@ class Npcs
         } catch (PDOException $e) {
             // die("Dungeon-Master-Fehler: " . $e->getMessage());
             error_log("Database error: When creating new NPC: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    ## Update NPC
+    public static function update($pdo, array $data): bool
+    {
+        try {
+            $sql = "UPDATE npc
+                   SET  npcname =:name,
+                        parentraceId =:parentrace,
+                        townId =:town,
+                        classId =:class,
+                        professionId =:profession,
+                        alignmentId =:alignment,
+                        statusId =:status,
+                        sizeId =:size,
+                        information =:info,
+                        image =:image
+                    WHERE npcId =:id";
+
+            $stmt = prepSql($pdo, $sql, [
+                'name'       => $data['name'],
+                'parentrace' => $data['parentrace'],
+                'town'       => $data['town'],
+                'class'      => $data['class'],
+                'profession' => $data['profession'],
+                'alignment'  => $data['alignment'],
+                'status'     => $data['status'],
+                'size'       => $data['size'],
+                'info'       => $data['info'],
+                'image'      => $data['image'],
+                'id'         => $data['id']
+            ]);
+            return true;
+        } catch (PDOException $e) {
+            error_log("Update error: " . $e->getMessage());
             return false;
         }
     }

@@ -34,15 +34,16 @@ class Npcs
         return prepSql($pdo, $sql)->fetchAll();
     }
 
-    public static function getById($pdo, int $id){
+    public static function getById($pdo, int $id)
+    {
         $sql = "SELECT *
                 FROM npc
                 WHERE npcId =:id";
-        
-        return prepSql($pdo,$sql, ['id'=> $id])->fetch();
+
+        return prepSql($pdo, $sql, ['id' => $id])->fetch();
     }
 
-    ## Function to insert new NPCs
+    ## Function to CREATE new NPCs
     public static function create($pdo, array $data): bool
     {
         try {
@@ -69,22 +70,22 @@ class Npcs
         }
     }
 
-    ## Update NPC
+    ## Function to UPDATE NPC
     public static function update($pdo, array $data): bool
     {
         try {
-            $sql = "UPDATE npc
-                   SET  npcname =:name,
-                        parentraceId =:parentrace,
-                        townId =:town,
-                        classId =:class,
-                        professionId =:profession,
-                        alignmentId =:alignment,
-                        statusId =:status,
-                        sizeId =:size,
-                        information =:info,
-                        image =:image
-                    WHERE npcId =:id";
+            $sql = "UPDATE  npc
+                    SET     npcname =:name,
+                            parentraceId =:parentrace,
+                            townId =:town,
+                            classId =:class,
+                            professionId =:profession,
+                            alignmentId =:alignment,
+                            statusId =:status,
+                            sizeId =:size,
+                            information =:info,
+                            image =:image
+                    WHERE   npcId =:id";
 
             $stmt = prepSql($pdo, $sql, [
                 'name'       => $data['name'],
@@ -102,6 +103,20 @@ class Npcs
             return true;
         } catch (PDOException $e) {
             error_log("Update error: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    ## Function to DELETE
+    public static function delete($pdo, int $id): bool
+    {
+        try {
+            $sql = "DELETE FROM npc 
+                    WHERE npcId = ?";
+            $stmt = prepSql($pdo, $sql, [$id]);
+            return true;
+        } catch (PDOException $e) {
+            error_log("Delete error: " . $e->getMessage());
             return false;
         }
     }

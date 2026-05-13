@@ -27,11 +27,26 @@ $action = $_GET['action'] ?? null;
 if ($action) {
   switch ($action) {
     case 'npc_save':
-      NpcController::handleSave($pdo);
+      NpcController::handleCreate($pdo);
       break;
 
     case 'npc_update':
       NpcController::update($pdo);
+      break;
+
+    case 'npc_delete':
+      NpcController::delete($pdo);
+      break;
+    case 'session_save':
+      // LogbookController::handleCreate($pdo);
+      break;
+
+    case 'session_update':
+      // LogbookController::update($pdo);
+      break;
+
+    case 'session_delete':
+      // LogbookController::delete($pdo);
       break;
   }
 }
@@ -56,7 +71,7 @@ switch ($page) {
     $selectedParent = 1;
     $selectedClass = 1;
     $selectedProfession = 1;
-    $selectedAlignment =1;
+    $selectedAlignment = 1;
     $selectedStatus = 1;
     $selectedSizeId = 1;
     $selectedInformation = "-- Enter information here --";

@@ -18,7 +18,10 @@
                 <div>
                     <a id="edit-btn" href="index.php?page=npc_form&id=<?= e($npc['npcId']) ?>">Edit</a>
                 </div>
-
+                <form method="POST" action="index.php?action=npc_delete">
+                    <input type="hidden" name="id" value="<?= e($npc['npcId']) ?>">
+                    <button type="submit">Löschen</button>
+                </form>
             </div>
         <?php endforeach; ?>
     <?php endif; ?>

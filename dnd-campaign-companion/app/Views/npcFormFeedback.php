@@ -23,6 +23,14 @@ require_once BASE_PATH . '/app/config/database_connection.php';
         case 'errorupdate': ?>
             <h2>💀 Kritischer Fehlschlag!</h2>
             <p>Die Götter (oder die Datenbank) haben die Änderung abgelehnt.</p>
+        <?php break;
+        case 'successdelete': ?>
+            <h2>🎉 Sad!</h2>
+            <p>Der NPC wurde erfolgreich aus dieser Welt eliminiert.</p>
+        <?php break;
+        case 'errordelete': ?>
+            <h2>💀 Kritischer Fehlschlag!</h2>
+            <p>Die Götter wollen sich nicht verabschieden.</p>
     <?php break;
     } ?>
 

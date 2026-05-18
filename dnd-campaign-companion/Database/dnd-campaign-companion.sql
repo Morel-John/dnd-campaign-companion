@@ -5,7 +5,7 @@ USE dnd_campaign_companion;
 
 CREATE TABLE user(
 	userId					INTEGER		PRIMARY KEY AUTO_INCREMENT,
-	username				VARCHAR(50)
+	username				VARCHAR(50) UNIQUE
 );
 
 CREATE TABLE town(
@@ -75,7 +75,8 @@ CREATE TABLE status(
 
 CREATE TABLE size(
 	sizeId					INTEGER		PRIMARY KEY AUTO_INCREMENT,
-	sizename				VARCHAR(50) UNIQUE
+	sizename				VARCHAR(50) UNIQUE,
+	image					VARCHAR(255)DEFAULT '../public/assets/img/npc/default2.png'
 );
 
 CREATE TABLE npc (
@@ -85,7 +86,7 @@ CREATE TABLE npc (
 	image					VARCHAR(255)DEFAULT '../public/assets/img/npc/default.png',
 	
 	townId					INTEGER		DEFAULT 1,
-	raceId					INTEGER		DEFAULT 1,
+	parentraceId					INTEGER		DEFAULT 1,
 	professionId			INTEGER		DEFAULT 1,
 	classId					INTEGER		DEFAULT 1,
 	statusId				INTEGER		DEFAULT 1,
@@ -93,7 +94,7 @@ CREATE TABLE npc (
 	sizeId					INTEGER		DEFAULT 1,
 	
 	FOREIGN KEY (townId)				REFERENCES town(townId),
-	FOREIGN KEY (raceId)				REFERENCES race(raceId),
+	FOREIGN KEY (parentraceId)			REFERENCES parentrace(parentraceId),
 	FOREIGN KEY (professionId)			REFERENCES profession(professionId),
 	FOREIGN KEY (classId)				REFERENCES class(classId),
 	FOREIGN KEY (alignmentId)			REFERENCES alignment(alignmentId),
@@ -132,8 +133,9 @@ CREATE TABLE npc_quest(
 CREATE TABLE logbook(
 	logbookId				INTEGER		PRIMARY KEY AUTO_INCREMENT,
 	date					DATE,
+	title					VARCHAR(50),
 	story					VARCHAR(500),
-	image					VARCHAR(255)DEFAULT '../assets/img/logbook/default.png'
+	image					VARCHAR(255)DEFAULT '../public/assets/img/logbook/default.jpg'
 );
 #########################################################################################
 #########################################################################################
@@ -526,44 +528,43 @@ INSERT INTO status (statusname)
 	('Completed'),
 	('Missed');
 
-INSERT INTO size (sizename)
+INSERT INTO size (sizename,image)
 	VALUES
-	('Medium'),
-	('Tiny'),
-	('Small'),
-	('Large'),
-	('Huge'),
-	('Gargantuan');
+	('Medium','../public/assets/img/size/medium.png'),
+	('Tiny','../public/assets/img/size/tiny.png'),
+	('Large','../public/assets/img/size/large.png'),
+	('Huge','../public/assets/img/size/huge.png'),
+	('Gargantuan','../public/assets/img/size/gargantuan.png');
 
-INSERT INTO npc (npcname, raceId, professionId, classId, statusId, alignmentId, sizeId, townId, information, image)
+INSERT INTO npc (npcname, parentraceId, professionId, classId, statusId, alignmentId, sizeId, townId, information, image)
 	VALUES
 	('Amros der Wall'		,22,	24,			8,		3,		2,		  1,		2,"Died in the last fight...",'../public/assets/img/npc/01_Amros_der_Wall.PNG'),
-	('Bruder Tristian', 	 DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/02_Bruder_Tristian.png'),
-	('Kelly Kupferblatt', 	 DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/03_Kelly_Kupferblatt.PNG'),
-	('Morfeus',  			 DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/04_Morfeus.jpg'),
-	('Peter Humanoid', 		 DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/05_Peter_Humanoid.PNG'),
-	('Priscilla', 			 DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/06_Priscilla.jpg'),
-	('Rhiannon Argynvost',	 DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/07_Rhiannon_Argynvost.PNG'),
-	('Sonya Blutkessel', 	 DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/08_Sonya_Blaukessel.jpg'),
-	('Staunton Vhane', 		 DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/09_Staunton_Vhane.PNG'),
-	('Tauriel', 			 DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/10_Tauriel.jpg'),
-	('Triks Risk Iktis', 	 DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/11_Triks_Risk_Iktis.jpg'),
-	('Tyrilla Federschwung', DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/12_Tyrilla_Federschwung.png'),
-	('Dreskari', 			 DEFAULT, 53, DEFAULT, DEFAULT, DEFAULT, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/13_Dreskari.PNG'),
-	('Ignir', 				 DEFAULT, 53, DEFAULT, DEFAULT, DEFAULT, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/14_Ignir.jpg'),
-	('Minagho', 			 DEFAULT, 53, DEFAULT, DEFAULT, DEFAULT, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/15_Minagho.PNG'),
-	('Vulgrim', 			 DEFAULT, 53, DEFAULT, DEFAULT, DEFAULT, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/16_Vulgrim.png'),
-	('Fendruh', 			 DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/19_Fendruh.jpg'),
-	('Schmerzschmied', 		 DEFAULT, 53, DEFAULT, DEFAULT, DEFAULT, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/20_Schmerzschmied.png'),
-	('Bob', 				 DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/21_Bob.png'),
-	('Can', 				 DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/22_Can.PNG'),
-	('Deckart_Cain', 		 DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/23_Deckart_Cain.jpg'),
-	('Draka', 				 DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/24_Paladin_Draka.PNG'),
-	('Lachir', 				 DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/25_Lachir.jpg'),
-	('Nenio', 				 DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/26_Nenio.png'),
-	('Riss', 				 DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/27_Riss.jpg'),
-	('Yuki', 				 DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/28_Yuki.PNG'),
-	('Arenameister', 		 DEFAULT, 53, DEFAULT, DEFAULT, DEFAULT, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/9_Arenameister.jpg');
+	('Bruder Tristian', 	 9, DEFAULT, DEFAULT, DEFAULT, 2, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/02_Bruder_Tristian.png'),
+	('Kelly Kupferblatt', 	 	DEFAULT, DEFAULT, DEFAULT, 2, DEFAULT, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/03_Kelly_Kupferblatt.PNG'),
+	('Morfeus',  			 9, DEFAULT, DEFAULT, DEFAULT, 2, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/04_Morfeus.jpg'),
+	('Peter Humanoid', 		 2, DEFAULT, DEFAULT, DEFAULT, 2, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/05_Peter_Humanoid.PNG'),
+	('Priscilla', 			 9, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/06_Priscilla.jpg'),
+	('Rhiannon Argynvost',	 4, DEFAULT, DEFAULT, DEFAULT, 2, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/07_Rhiannon_Argynvost.PNG'),
+	('Sonya Blutkessel', 	 9, DEFAULT, DEFAULT, DEFAULT, 2, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/08_Sonya_Blaukessel.jpg'),
+	('Staunton Vhane', 		 9, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/09_Staunton_Vhane.PNG'),
+	('Tauriel', 			 10, DEFAULT, DEFAULT, DEFAULT, 2, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/10_Tauriel.jpg'),
+	('Triks Risk Iktis', 	 33, DEFAULT, DEFAULT, DEFAULT, 2, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/11_Triks_Risk_Iktis.jpg'),
+	('Tyrilla Federschwung', 22, DEFAULT, DEFAULT, DEFAULT, 2, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/12_Tyrilla_Federschwung.png'),
+	('Dreskari', 			 39, DEFAULT, DEFAULT, DEFAULT, 3, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/13_Dreskari.PNG'),
+	('Ignir', 				 39, DEFAULT, DEFAULT, DEFAULT, 3, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/14_Ignir.jpg'),
+	('Minagho', 			 39, DEFAULT, DEFAULT, DEFAULT, 3, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/15_Minagho.PNG'),
+	('Vulgrim', 			 39, 53, 	  DEFAULT, DEFAULT, 3, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/16_Vulgrim.png'),
+	('Fendruh', 			 23, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/19_Fendruh.jpg'),
+	('Schmerzschmied', 		 39, DEFAULT, DEFAULT, 3, 3, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/20_Schmerzschmied.png'),
+	('Bob', 				 9, DEFAULT, DEFAULT, DEFAULT, 2, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/21_Bob.png'),
+	('Can', 				 36, DEFAULT, DEFAULT, DEFAULT, 2, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/22_Can.PNG'),
+	('Deckart_Cain', 		 9, DEFAULT, DEFAULT, DEFAULT, 2, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/23_Deckart_Cain.jpg'),
+	('Draka', 				 36, DEFAULT, DEFAULT, DEFAULT, 2, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/24_Paladin_Draka.PNG'),
+	('Lachir', 				 10, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/25_Lachir.jpg'),
+	('Nenio', 				 9, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/26_Nenio.png'),
+	('Riss', 				 DEFAULT, DEFAULT, DEFAULT, 2, DEFAULT, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/27_Riss.jpg'),
+	('Yuki', 				 22, DEFAULT, DEFAULT, DEFAULT, 2, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/28_Yuki.PNG'),
+	('Arenameister', 		 39, DEFAULT, DEFAULT, DEFAULT, 3, DEFAULT,DEFAULT, "DEFAULT",'../public/assets/img/npc/29_Arenameister.jpg');
 
 INSERT INTO quest (questname, questdescription, reward, npcId, townId, statusId) 
 VALUES
@@ -591,7 +592,31 @@ INSERT INTO npc_quest(npcId, questId)
 	(9, 10), 
 	(10, 8); 
 
-SELECT pr.parentracename, r.racename,b.bookname,pr.parentraceId
-FROM race AS r
-JOIN parentrace AS pr ON pr.parentraceId =r.parentraceId
-JOIN sourcebook AS b ON b.bookId = r.bookId;
+INSERT INTO logbook (date, title, story, image) VALUES 
+(
+    '2024-05-01', 
+    'Der Aufbruch in Oakhaven', 
+    'Die Gruppe traf sich im "Tänzelnden Pony". Der Wirt berichtete von seltsamen Geräuschen im Keller. Nach einer kurzen Untersuchung entdeckten die Helden ein Nest von Riesenratten und einen geheimen Tunnel, der tief unter die Stadt führt. Sie fanden eine alte Karte, die auf ein vergessenes Grab hinweist.',
+    DEFAULT
+),
+(
+    '2024-05-08', 
+    'Das Grab des vergessenen Königs', 
+    'Tief in den Tunneln unter Oakhaven stießen die Abenteurer auf eine uralte Gruft. Skelettkrieger bewachten den Eingang. Nach einem harten Kampf konnte die Gruppe ein mysteriöses Amulett bergen, das seltsam in der Dunkelheit leuchtet. Grog der Riese wäre beinahe in eine Fallgrube gestürzt.',
+    DEFAULT
+),
+(
+    '2024-05-15', 
+    'Verrat in der Hauptstadt', 
+    'Die Gruppe erreichte die Hauptstadt, um das Amulett untersuchen zu lassen. Dort wurden sie jedoch von Stadtwachen abgefangen. Ein unbekannter Adliger scheint ein großes Interesse an ihrem Fund zu haben. Er bot ihnen Schutz an, doch die Gruppe traut seinem Lächeln nicht. Werden sie sein Angebot annehmen?',
+    DEFAULT
+);
+SELECT n.npcname, t.townname, c.classname,po.professionname, pr.parentracename, a.alignmentname, s.statusname, si.sizename, n.npcId, n.image
+FROM npc as n
+JOIN town as t on t.townId=n.townId
+JOIN class as c on c.classId=n.classId
+JOIN profession as po on po.professionId = n.professionId
+JOIN parentrace as pr on pr.parentraceId = n.parentraceId
+JOIN alignment as a on a.alignmentId=n.alignmentId
+JOIN status as s on s.statusId=n.statusId
+JOIN size as si on si.sizeId=n.sizeId

@@ -18,8 +18,15 @@ class Npcs
 
     public static function getAll($pdo): array
     {
-        $sql = "SELECT * 
-                FROM npc 
+        $sql = "SELECT n.npcname, t.townname, c.classname,po.professionname, pr.parentracename, a.alignmentname, s.statusname, si.sizename, n.npcId, n.image
+                FROM npc as n
+                JOIN town as t on t.townId=n.townId
+                JOIN class as c on c.classId=n.classId
+                JOIN profession as po on po.professionId = n.professionId
+                JOIN parentrace as pr on pr.parentraceId = n.parentraceId
+                JOIN alignment as a on a.alignmentId=n.alignmentId
+                JOIN status as s on s.statusId=n.statusId
+                JOIN size as si on si.sizeId=n.sizeId 
                 ORDER BY 
                 npcname ASC";
 

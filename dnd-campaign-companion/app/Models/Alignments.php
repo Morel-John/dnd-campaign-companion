@@ -2,7 +2,7 @@
 ## Creating class Alignment
 class Alignment
 {
-  ## Building contructor with parameters that can be null (id = autoincrement)
+  ## Building contructor with parameters that can be null (id = auto-increment)
   ## To be able to use null need to put ? infront of variabletype
   public function __construct(
     ?int $id = null,

@@ -6,6 +6,7 @@ return [
     'nav_quests' => 'Quests',
     'nav_races' => 'Völker',
     'nav_logbook' => 'Logbuch',
+    'nav_logbook_form' => 'Neuer Logbuch',
     # Searchbar
     'search_placeholder' => 'Suchen...',
     # Button

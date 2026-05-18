@@ -16,9 +16,11 @@ require_once BASE_PATH . '/app/Models/Races.php';
 require_once BASE_PATH . '/app/Models/Sizes.php';
 require_once BASE_PATH . '/app/Models/Status.php';
 require_once BASE_PATH . '/app/Models/Towns.php';
+require_once BASE_PATH . '/app/Models/Logbook.php';
 
 ## Required controllers
 require_once BASE_PATH . '/app/Controllers/NpcController.php';
+require_once BASE_PATH . '/app/Controllers/LogbookController.php';
 
 ## Saving action in variable
 $action = $_GET['action'] ?? null;
@@ -37,16 +39,16 @@ if ($action) {
     case 'npc_delete':
       NpcController::delete($pdo);
       break;
-    case 'session_save':
-      // LogbookController::handleCreate($pdo);
+    case 'logbook_save':
+      LogbookController::handleCreate($pdo);
       break;
 
-    case 'session_update':
-      // LogbookController::update($pdo);
+    case 'logbook_update':
+      LogbookController::handleUpdate($pdo);
       break;
 
-    case 'session_delete':
-      // LogbookController::delete($pdo);
+    case 'logbook_delete':
+      LogbookController::handleDelete($pdo);
       break;
   }
 }
@@ -117,7 +119,20 @@ switch ($page) {
     break;
 
   case 'logbook':
+    $logbooks = Logbook::getAll($pdo);
     require BASE_PATH . '/app/Views/logbook.php';
+    break;
+
+  case 'logbook_form':
+    $logbookId = $_GET['id'] ?? null;
+    $logbook = null;
+
+    if ($logbookId){
+      $logbook= Logbook::getById($pdo, (int)$logbookId);
+    }
+
+
+    require BASE_PATH . '/app/Views/logbook_form.php';
     break;
 
   default:

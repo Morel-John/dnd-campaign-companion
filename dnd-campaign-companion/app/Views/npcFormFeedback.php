@@ -5,6 +5,7 @@ $isError = ($status === 'failed');
 require_once BASE_PATH . '/app/config/database_connection.php';
 ?>
 <!-- ####### To-Do: optimize site #####  -->
+ <!-- ############################################# -->
 <div class="feedback-container <?= $isError ? 'error' : 'success' ?>">
     <?php switch ($status) {
         case 'success': ?>
@@ -19,7 +20,6 @@ require_once BASE_PATH . '/app/config/database_connection.php';
             <h2>🎉 Sieg!</h2>
             <p>Der NPC wurde erfolgreich neugeformt.</p>
         <?php break;
-
         case 'errorupdate': ?>
             <h2>💀 Kritischer Fehlschlag!</h2>
             <p>Die Götter (oder die Datenbank) haben die Änderung abgelehnt.</p>
@@ -31,6 +31,38 @@ require_once BASE_PATH . '/app/config/database_connection.php';
         case 'errordelete': ?>
             <h2>💀 Kritischer Fehlschlag!</h2>
             <p>Die Götter wollen sich nicht verabschieden.</p>
+        <?php break;
+        case 'successquest': ?>
+            <h2>🎉 Sieg!</h2>
+            <p>Der Quest wurde erfolgreich in die Chroniken eingetragen.</p>
+        <?php break;
+        case 'errorquest': ?>
+            <h2>💀 Kritischer Fehlschlag!</h2>
+            <p>Die Götter (oder die Datenbank) haben die Quest abgelehnt.</p>
+        <?php break;
+        case 'successstory': ?>
+            <h2>🎉 Sieg!</h2>
+            <p>Der session wurde erfolgreich in die Chroniken eingetragen.</p>
+        <?php break;
+        case 'errorstory': ?>
+            <h2>💀 Kritischer Fehlschlag!</h2>
+            <p>Die Götter (oder die Datenbank) haben die session abgelehnt.</p>
+        <?php break;
+        case 'successStoryUpdate': ?>
+            <h2>🎉 Sieg!</h2>
+            <p>Der session wurde erfolgreich in die Chroniken eingetragen.</p>
+        <?php break;
+        case 'errorStoryUpdate': ?>
+            <h2>💀 Kritischer Fehlschlag!</h2>
+            <p>Die Götter (oder die Datenbank) haben die session abgelehnt.</p>
+        <?php break;
+        case 'successStoryDelete': ?>
+            <h2>🎉 Sieg!</h2>
+            <p>Der session wurde erfolgreich in die Chroniken eingetragen.</p>
+        <?php break;
+        case 'errorStoryDelete': ?>
+            <h2>💀 Kritischer Fehlschlag!</h2>
+            <p>Die Götter (oder die Datenbank) haben die session abgelehnt.</p>
     <?php break;
     } ?>
 

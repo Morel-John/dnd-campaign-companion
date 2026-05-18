@@ -5,6 +5,7 @@ return [
     'nav_quests' => 'Quests',
     'nav_races' => 'Races',
     'nav_logbook' => 'Logbook',
+    'nav_logbook_form' => 'New Logbook',
     'search_placeholder' => 'Search...',
     'btn_save' => 'Save changes',
     'btn_cancel' => 'Discard changes'

@@ -38,6 +38,7 @@
             <a href="index.php?page=quest_list"><?= t('nav_quests') ?></a>
             <a href="index.php?page=race_detail"><?= t('nav_races') ?></a>
             <a href="index.php?page=logbook"><?= t('nav_logbook') ?></a>
+            <a href="index.php?page=logbook_form"><?= t('nav_logbook_form') ?></a>
         </div>
 
         <div class="lang-switch">

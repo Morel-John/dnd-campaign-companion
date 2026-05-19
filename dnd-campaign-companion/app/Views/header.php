@@ -41,8 +41,17 @@
             <a href="index.php?page=logbook_form"><?= t('nav_logbook_form') ?></a>
         </div>
 
-        <div class="lang-switch">
-            <a href="?lang=de">DE</a> | <a href="?lang=en">EN</a>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <span style="color: #b5b5b5; font-size: 0.9rem;">
+                👤 <?= e($_SESSION['username']) ?>
+            </span>
+            <div class="lang-switch">
+                <a href="?lang=de">DE</a> | <a href="?lang=en">EN</a>
+            </div>
+            <a href="index.php?action=logout"
+                style="background-color: #ff3860; padding: 6px 12px; border-radius: 4px; color: white; text-decoration: none; font-size: 0.9rem;">
+                Logout
+            </a>
         </div>
     </nav>
 

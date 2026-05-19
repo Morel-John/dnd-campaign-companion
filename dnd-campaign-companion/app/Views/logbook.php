@@ -47,4 +47,5 @@
         <?php else: ?>
             <p class="no-entries">Noch keine Ereignisse in der Chronik verzeichnet.</p>
         <?php endif; ?>
+        
     </div>

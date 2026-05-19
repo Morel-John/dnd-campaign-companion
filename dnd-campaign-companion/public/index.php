@@ -2,6 +2,7 @@
 ## Define home base of the project, for saving time with paths and reducing error potential and for security
 define('BASE_PATH', dirname(__DIR__));
 require_once BASE_PATH . '/app/config/database_connection.php';
+require_once BASE_PATH . '/app/config/session.php';
 require BASE_PATH . '/app/config/helpers.php';
 require BASE_PATH . '/app/config/lang_function.php';
 
@@ -28,6 +29,15 @@ $action = $_GET['action'] ?? null;
 ## If any action ongoing select right case
 if ($action) {
   switch ($action) {
+    case 'login':
+      require_once BASE_PATH . '/app/Controllers/SessionController.php';
+      break;
+
+    case 'logout':
+      session_destroy();
+      header('Location: index.php?page=login');
+      exit;
+
     case 'npc_save':
       NpcController::handleCreate($pdo);
       break;
@@ -53,13 +63,26 @@ if ($action) {
   }
 }
 
-## Header
-require_once BASE_PATH . '/app/Views/header.php';
-
 ## Save current page in variable
 $page   = $_GET['page'] ?? 'home';
+
+## Require login on every site expect login.php and also don´t load the header for the login
+if ($page !== 'login') {
+  requireLogin();
+  ## Header
+  require_once BASE_PATH . '/app/Views/header.php';
+}
+
 ## Use page-variable to look what has to be loaded
 switch ($page) {
+  case 'login':
+    if (isLoggedIn()) {
+      header('Location: index.php?page=home');
+      exit;
+    }
+    require BASE_PATH . '/app/Views/login.php';
+    break;
+
   case 'home':
     $npcs = Npcs::getAll($pdo);
     require BASE_PATH . '/app/Views/home.php';
@@ -127,8 +150,8 @@ switch ($page) {
     $logbookId = $_GET['id'] ?? null;
     $logbook = null;
 
-    if ($logbookId){
-      $logbook= Logbook::getById($pdo, (int)$logbookId);
+    if ($logbookId) {
+      $logbook = Logbook::getById($pdo, (int)$logbookId);
     }
 
 

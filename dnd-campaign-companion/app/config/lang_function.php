@@ -1,5 +1,5 @@
 <?php
-session_start();
+## session_start(); Is not needed anymore because of the session_start while login
 
 ## Whitelist: Which language are allowed 
 $allowed_langs = ['de', 'en'];

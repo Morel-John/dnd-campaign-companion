@@ -1,7 +1,7 @@
 <?php
 class LogbookController
 {
-  public static function handleUpload($prefix, $existingImage = 'assets/img/logbook/default.jpg')
+  public static function handleUpload($prefix, $existingImage = 'assets/img/logbook/default.png')
   {
     if (empty($_FILES['image']['name']) || $_FILES['image']['error'] !== UPLOAD_ERR_OK) {
       return $existingImage;
@@ -23,7 +23,7 @@ class LogbookController
   public static function handleCreate($pdo)
   {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-      $existingImage = $_POST['current_image'] ?? 'assets/img/logbook/default.jpg';
+      $existingImage = $_POST['current_image'] ?? 'assets/img/logbook/default.png';
       $imagePath = self::handleUpload($_POST['title'], $existingImage);
 
       $sessionData = [
@@ -47,7 +47,7 @@ class LogbookController
   {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $logbookId = (int)$_POST['logbookId'];
-      $existingImage = $_POST['current_image'] ?? 'assets/img/logbook/default.jpg';
+      $existingImage = $_POST['current_image'] ?? 'assets/img/logbook/default.png';
       $imagePath = self::handleUpload($logbookId . '_' . $_POST['title'], $existingImage);
       $sessionData = [
         'logbookId' => $logbookId,
@@ -73,7 +73,7 @@ class LogbookController
       if ($logbookId > 0) {
         $logbook = Logbook::getById($pdo, $logbookId);
         if ($logbook) {
-          if ($logbook['image'] !== 'assets/img/logbook/default.jpg') {
+          if ($logbook['image'] !== 'assets/img/logbook/default.png') {
             $fullpath = BASE_PATH . '/public/' . $logbook['image'];
 
             if (file_exists($fullpath)) {

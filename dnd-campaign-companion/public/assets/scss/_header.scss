@@ -1,0 +1,135 @@
+nav {
+    background: var(--color-surface);
+    // box-shadow: 0 4px 15px var(--color-accent-light);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+// ################################################################
+// ################################################################
+// ################################################################
+// ################################################################
+// ################################################################
+.nav-breaker{
+    background-image: url('../img/rune.png');
+    height: 5px;
+    display:block;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.lang-switch {
+    font-size: 0.8rem;
+}
+/* Google Fonts importieren für den authentischen Look */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500&display=swap');
+
+:root {
+  /* Farbpalette basierend auf deinem Design */
+  --nav-bg: #1e1b18;          /* Dunkles, warmes Anthrazit/Stahl */
+  --nav-border: #3a322d;      /* Etwas hellerer Metallrand */
+  --text-gold: #d4a373;       /* Das edle Altgold für die Schrift */
+  --text-hover: #e65f2b;      /* Das warme Orange aus Option 3 für Hover-Effekte */
+  --rune-color: #5a4e46;      /* Dezentes, verblasstes Braun für die Trenn-Runen */
+}
+
+/* Die Hauptleiste */
+.dungeon-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3rem;
+  height: 100px;
+  background: linear-gradient(180deg, var(--nav-bg) 0%, #141210 100%);
+  border-bottom: 3px solid var(--nav-border);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+  font-family: 'Cinzel', serif;
+  position: fixed; /* Bleibt beim Scrollen oben */
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+/* Logo-Bereich links */
+.nav-brand .brand-logo {
+  font-size: 1.5rem;
+  color: var(--text-gold);
+  text-shadow: 0 0 8px rgba(212, 163, 115, 0.4);
+  cursor: pointer;
+}
+
+/* Navigations-Links in der Mitte */
+.nav-links {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--text-gold);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  padding: 0 0.8rem;
+  transition: all 0.3s ease;
+//   text-shadow: 1px 1px 2px var(--color-accent-light);
+}
+
+/* Hover-Effekt: Text leuchtet leicht orange auf */
+.nav-links a:hover, 
+.nav-links a.active {
+  color: var(--text-hover);
+  text-shadow: 0 0 10px rgba(230, 95, 43, 0.5);
+}
+
+/* Die Runen-Trennstriche (Divider) */
+.nav-links .divider {
+  color: var(--rune-color);
+  font-size: 0.8rem;
+  user-select: none;
+  padding: 0 0.2rem;
+  opacity: 0.7;
+}
+
+/* User-Bereich rechts */
+.nav-user {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-user a {
+  color: var(--text-gold);
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.nav-user a:hover {
+  color: var(--text-hover);
+}
+
+/* Kleiner Fix für den restlichen Content der Seite, 
+   damit er nicht unter der fixierten Navi verschwindet */
+body {
+  margin: 0;
+  padding-top: 100px; 
+}

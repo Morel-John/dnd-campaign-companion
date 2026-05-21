@@ -1,0 +1,57 @@
+:root {
+    --color-background: #1f1914;
+
+    --color-surface-transparent: rgba(46, 37, 31, 0.8);
+    --color-surface: #2e251f;
+    --color-surface-light: #5a5959;
+
+    --color-accent: #e65f2b;
+    --color-accent-light: #ff7f50;
+
+    --color-light: #eaddca;
+
+    --color-yellow: #ffdd57;
+    // Do I need more? 
+    --color-dark: #301804;
+}
+
+.color-background {
+    color: var(--color-background);
+}
+
+.bg-color-background {
+    background-color: var(--color-background);
+}
+
+.color-surface {
+    color: var(--color-surface);
+}
+
+.bg-color-surface {
+    background-color: var(--color-surface);
+}
+
+.color-accent {
+    color: var(--color-accent);
+}
+
+.bg-color-accent {
+    background-color: var(--color-accent);
+}
+
+.color-text {
+    color: var(--color-light);
+}
+
+.bg-color-text {
+    background-color: var(--color-text);
+}
+
+// Do I need more? 
+.color-dark {
+    color: var(--color-dark);
+}
+
+.bg-color-dark {
+    background-color: var(--color-dark);
+}

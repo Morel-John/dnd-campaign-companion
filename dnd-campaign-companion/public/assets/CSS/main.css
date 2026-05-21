@@ -1,0 +1,478 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+:root {
+  --color-background: #1f1914;
+  --color-surface-transparent: rgba(46, 37, 31, 0.8);
+  --color-surface: #2e251f;
+  --color-surface-light: #5a5959;
+  --color-accent: #e65f2b;
+  --color-accent-light: #ff7f50;
+  --color-light: #eaddca;
+  --color-yellow: #ffdd57;
+  --color-dark: #301804;
+}
+
+.color-background {
+  color: var(--color-background);
+}
+
+.bg-color-background {
+  background-color: var(--color-background);
+}
+
+.color-surface {
+  color: var(--color-surface);
+}
+
+.bg-color-surface {
+  background-color: var(--color-surface);
+}
+
+.color-accent {
+  color: var(--color-accent);
+}
+
+.bg-color-accent {
+  background-color: var(--color-accent);
+}
+
+.color-text {
+  color: var(--color-light);
+}
+
+.bg-color-text {
+  background-color: var(--color-text);
+}
+
+.color-dark {
+  color: var(--color-dark);
+}
+
+.bg-color-dark {
+  background-color: var(--color-dark);
+}
+
+:root {
+  --headline-font: "Cinzel", serif;
+  --body-font: "Inter", sans-serif;
+}
+
+.login-background {
+  background-image: url("../img/background/login_background.jpg");
+  background-size: cover;
+  background-position: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+}
+
+.login-container {
+  background-color: var(--color-surface-transparent);
+  font-family: var(--body-font);
+  padding: 30px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 4px 15px var(--color-accent-light);
+          box-shadow: 0 4px 15px var(--color-accent-light);
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-container h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--color-accent);
+  font-family: var(--headline-font);
+  margin-bottom: 20px;
+}
+
+.error_login {
+  background-color: #ff3860;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.login-container form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.login-container form div {
+  margin-bottom: 15px;
+}
+
+.login-container form label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--color-text-secondary);
+}
+
+.login-container form input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface-light);
+  color: var(--color-text);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.login-container form button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--color-accent);
+  font-family: var(--headline-font);
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 1.3rem;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-image: url("../img/background.png"); /* Dein hochgeladenes Bild! */
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: top;
+}
+
+nav {
+  background: var(--color-surface);
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.nav-breaker {
+  background-image: url("../img/rune.png");
+  height: 5px;
+  display: block;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.lang-switch {
+  font-size: 0.8rem;
+}
+
+/* Google Fonts importieren für den authentischen Look */
+:root {
+  /* Farbpalette basierend auf deinem Design */
+  --nav-bg: #1e1b18; /* Dunkles, warmes Anthrazit/Stahl */
+  --nav-border: #3a322d; /* Etwas hellerer Metallrand */
+  --text-gold: #d4a373; /* Das edle Altgold für die Schrift */
+  --text-hover: #e65f2b; /* Das warme Orange aus Option 3 für Hover-Effekte */
+  --rune-color: #5a4e46; /* Dezentes, verblasstes Braun für die Trenn-Runen */
+}
+
+/* Die Hauptleiste */
+.dungeon-navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 3rem;
+  height: 100px;
+  background: -webkit-gradient(linear, left top, left bottom, from(var(--nav-bg)), to(#141210));
+  background: linear-gradient(180deg, var(--nav-bg) 0%, #141210 100%);
+  border-bottom: 3px solid var(--nav-border);
+  -webkit-box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+  font-family: "Cinzel", serif;
+  position: fixed; /* Bleibt beim Scrollen oben */
+  top: 0;
+  left: 0;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  z-index: 1000;
+}
+
+/* Logo-Bereich links */
+.nav-brand .brand-logo {
+  font-size: 1.5rem;
+  color: var(--text-gold);
+  text-shadow: 0 0 8px rgba(212, 163, 115, 0.4);
+  cursor: pointer;
+}
+
+/* Navigations-Links in der Mitte */
+.nav-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav-links a {
+  color: var(--text-gold);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  padding: 0 0.8rem;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+/* Hover-Effekt: Text leuchtet leicht orange auf */
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--text-hover);
+  text-shadow: 0 0 10px rgba(230, 95, 43, 0.5);
+}
+
+/* Die Runen-Trennstriche (Divider) */
+.nav-links .divider {
+  color: var(--rune-color);
+  font-size: 0.8rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  padding: 0 0.2rem;
+  opacity: 0.7;
+}
+
+/* User-Bereich rechts */
+.nav-user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-user a {
+  color: var(--text-gold);
+  text-decoration: none;
+  font-size: 1.2rem;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.nav-user a:hover {
+  color: var(--text-hover);
+}
+
+/* Kleiner Fix für den restlichen Content der Seite, 
+   damit er nicht unter der fixierten Navi verschwindet */
+body {
+  margin: 0;
+  padding-top: 100px;
+}
+
+:root {
+  --headline-font: "Cinzel", serif;
+  --body-font: "Inter", sans-serif;
+}
+
+/* ######################## Modal design ########################## */
+/* 1. Der Haupt-Hintergrund (Das Modal an sich) */
+.modal {
+  display: none; /* Startet komplett unsichtbar! */
+  position: fixed; /* Bleibt fest an Ort und Stelle, auch beim Scrollen */
+  z-index: 1000; /* Liegt wie eine Schicht über ALLEM anderen */
+  left: 0;
+  top: 0;
+  width: 100%; /* Streckt sich über den ganzen Bildschirm */
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Schwarzer, leicht durchsichtiger Schleier */
+  overflow: auto; /* Falls der Bildschirm zu klein ist, wird scrollbar */
+}
+
+/* 2. Die Akte (Das Inhaltsfenster) */
+.modal-content {
+  background-color: #fdf5e6; /* Deine Pergament-Farbe */
+  margin: 10% auto; /* 10% Abstand von oben, horizontal zentriert */
+  padding: 25px;
+  border: 2px solid #8d6e63; /* DnD-brauner Rahmen */
+  width: 80%;
+  max-width: 600px; /* Wird niemals breiter als 600px */
+  border-radius: 12px;
+  position: relative; /* Wichtig für die Positionierung des X-Buttons */
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* 3. Der Schließen-Button (Das X) */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  color: #8d6e63;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
+}
+
+.close-btn:hover {
+  color: #3e2723; /* Wird dunkler, wenn man mit der Maus drüber fährt */
+}
+
+/* 4. Layout innerhalb des Modals (Bild neben den Stats) */
+.modal-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #d7ccc8;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+.modal-image-container img {
+  width: 100px;
+  height: 100px;
+  -o-object-fit: cover;
+     object-fit: cover; /* Bild wird perfekt quadratisch zugeschnitten */
+  border-radius: 50%; /* Macht das Bild rund, wie ein Token */
+  border: 2px solid #8d6e63;
+}
+
+/* 5. Die Fakten-Liste */
+.modal-stats p {
+  margin: 8px 0;
+  color: #5d4037;
+  font-size: 1.05rem;
+}
+
+/* 6. Der Infotext und Footer */
+.modal-body h3 {
+  color: #3e2723;
+  margin-top: 20px;
+  border-bottom: 1px solid #d7ccc8;
+  padding-bottom: 5px;
+}
+
+#modal-info {
+  color: #5d4037;
+  line-height: 1.6;
+}
+
+.modal-footer {
+  margin-top: 25px;
+  text-align: right;
+}
+
+.btn-edit-profile {
+  background-color: #8d6e63;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.btn-edit-profile:hover {
+  background-color: #5d4037;
+}
+
+/* 1. Den hässlichen Punkt verstecken */
+.hidden-radio {
+  display: none;
+}
+
+/* 2. Das Label als Kasten stylen */
+.box-label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 15px;
+  border: 3px solid #ccc; /* Standard-Rahmen */
+  border-radius: 8px;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  background-color: white;
+}
+
+.box-label img {
+  width: 80px; /* Oder wie im Screenshot */
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* 3. DIE KONTUR: Wenn der Radiobutton ausgewählt ist */
+.hidden-radio:checked + .box-label {
+  border-color: #e74c3c; /* Deine Wunschfarbe für die Kontur (z.B. Rot) */
+  -webkit-box-shadow: 0 0 10px rgba(231, 76, 60, 0.3);
+          box-shadow: 0 0 10px rgba(231, 76, 60, 0.3);
+  background-color: #fff5f5;
+}
+
+/* Hover-Effekt für bessere UX */
+.box-label:hover {
+  border-color: #999;
+}

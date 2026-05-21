@@ -1,7 +1,7 @@
 <script src="assets/js/page-flip.browser.js" defer></script>
 <script src="assets/js/logbook.js" defer></script>
 
-<link rel="stylesheet" href="assets/css/logbook.css">
+<link rel="stylesheet" href="assets/CSS/logbook.css">
 
 <div id="book">
     <div class="page_cover" data-density="hard"></div>

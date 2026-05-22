@@ -1,7 +1,6 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 :root {
@@ -11,9 +10,14 @@
   --color-surface-light: #5a5959;
   --color-accent: #e65f2b;
   --color-accent-light: #ff7f50;
+  --color-accent-dark: #492113;
   --color-light: #eaddca;
+  --color-light-transparent: rgba(234, 221, 202, 0.8);
   --color-yellow: #ffdd57;
-  --color-dark: #301804;
+  --silver-bright: #8a8a8a;
+  --silver-dark: #4a4a4a;
+  --shadow-left-right: 4px 4px 10px var(--color-background);
+  --shadow-top-bottom: 2px 2px 8px var(--color-background);
 }
 
 .color-background {
@@ -162,51 +166,69 @@ body {
   background-position: top;
 }
 
-nav {
-  background: var(--color-surface);
-  padding: 1rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  color: white;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 0 10px;
-}
-
-.nav-breaker {
-  background-image: url("../img/rune.png");
-  height: 5px;
-  display: block;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.lang-switch {
-  font-size: 0.8rem;
-}
-
-/* Google Fonts importieren für den authentischen Look */
 :root {
-  /* Farbpalette basierend auf deinem Design */
-  --nav-bg: #1e1b18; /* Dunkles, warmes Anthrazit/Stahl */
-  --nav-border: #3a322d; /* Etwas hellerer Metallrand */
-  --text-gold: #d4a373; /* Das edle Altgold für die Schrift */
-  --text-hover: #e65f2b; /* Das warme Orange aus Option 3 für Hover-Effekte */
-  --rune-color: #5a4e46; /* Dezentes, verblasstes Braun für die Trenn-Runen */
+  --color-background: #1f1914;
+  --color-surface-transparent: rgba(46, 37, 31, 0.8);
+  --color-surface: #2e251f;
+  --color-surface-light: #5a5959;
+  --color-accent: #e65f2b;
+  --color-accent-light: #ff7f50;
+  --color-accent-dark: #492113;
+  --color-light: #eaddca;
+  --color-light-transparent: rgba(234, 221, 202, 0.8);
+  --color-yellow: #ffdd57;
+  --silver-bright: #8a8a8a;
+  --silver-dark: #4a4a4a;
+  --shadow-left-right: 4px 4px 10px var(--color-background);
+  --shadow-top-bottom: 2px 2px 8px var(--color-background);
 }
 
-/* Die Hauptleiste */
-.dungeon-navbar {
+.color-background {
+  color: var(--color-background);
+}
+
+.bg-color-background {
+  background-color: var(--color-background);
+}
+
+.color-surface {
+  color: var(--color-surface);
+}
+
+.bg-color-surface {
+  background-color: var(--color-surface);
+}
+
+.color-accent {
+  color: var(--color-accent);
+}
+
+.bg-color-accent {
+  background-color: var(--color-accent);
+}
+
+.color-text {
+  color: var(--color-light);
+}
+
+.bg-color-text {
+  background-color: var(--color-text);
+}
+
+.color-dark {
+  color: var(--color-dark);
+}
+
+.bg-color-dark {
+  background-color: var(--color-dark);
+}
+
+body {
+  margin: 0;
+  padding-top: 100px;
+}
+
+.nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -216,45 +238,24 @@ nav a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 0 3rem;
   height: 100px;
-  background: -webkit-gradient(linear, left top, left bottom, from(var(--nav-bg)), to(#141210));
-  background: linear-gradient(180deg, var(--nav-bg) 0%, #141210 100%);
-  border-bottom: 3px solid var(--nav-border);
-  -webkit-box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
-          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
-  font-family: "Cinzel", serif;
-  position: fixed; /* Bleibt beim Scrollen oben */
+  background: -webkit-gradient(linear, left top, right top, from(var(--color-surface)), color-stop(50%, var(--color-accent-dark)), to(var(--color-surface)));
+  background: linear-gradient(90deg, var(--color-surface) 0%, var(--color-accent-dark) 50%, var(--color-surface) 100%);
+  -webkit-box-shadow: 0 4px 15px var(--color-surface-transparent);
+          box-shadow: 0 4px 15px var(--color-surface-transparent);
+  font-family: var(--headline-font);
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
   z-index: 1000;
 }
 
-/* Logo-Bereich links */
-.nav-brand .brand-logo {
-  font-size: 1.5rem;
-  color: var(--text-gold);
-  text-shadow: 0 0 8px rgba(212, 163, 115, 0.4);
-  cursor: pointer;
-}
-
-/* Navigations-Links in der Mitte */
-.nav-links {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.nav li {
   list-style: none;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 0;
-  padding: 0;
 }
 
-.nav-links li {
+.nav-links {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -264,7 +265,7 @@ nav a {
 }
 
 .nav-links a {
-  color: var(--text-gold);
+  color: var(--color-yellow);
   text-decoration: none;
   text-transform: uppercase;
   font-size: 1.2rem;
@@ -275,81 +276,288 @@ nav a {
   transition: all 0.3s ease;
 }
 
-/* Hover-Effekt: Text leuchtet leicht orange auf */
 .nav-links a:hover,
 .nav-links a.active {
-  color: var(--text-hover);
-  text-shadow: 0 0 10px rgba(230, 95, 43, 0.5);
+  color: var(--color-accent);
+  text-shadow: 0 0 2px var(--color-accent-light);
 }
 
-/* Die Runen-Trennstriche (Divider) */
+.nav::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: -webkit-gradient(linear, left top, right top, from(var(--silver-dark)), color-stop(30%, var(--silver-bright)), to(var(--silver-dark)));
+  background: linear-gradient(90deg, var(--silver-dark) 0%, var(--silver-bright) 30%, var(--silver-dark) 100%);
+  -webkit-box-shadow: 0 4px 15px var(--color-surface-transparent);
+          box-shadow: 0 4px 15px var(--color-surface-transparent);
+  border-bottom: 1px solid var(--color-background);
+}
+
+.nav::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: -webkit-gradient(linear, left top, right top, from(var(--silver-dark)), color-stop(80%, var(--silver-bright)), to(var(--silver-dark)));
+  background: linear-gradient(90deg, var(--silver-dark) 0%, var(--silver-bright) 80%, var(--silver-dark) 100%);
+  -webkit-box-shadow: 0 -13px 15px var(--color-surface-transparent);
+          box-shadow: 0 -13px 15px var(--color-surface-transparent);
+  border-top: 1px solid var(--color-background);
+}
+
 .nav-links .divider {
-  color: var(--rune-color);
-  font-size: 0.8rem;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
   padding: 0 0.2rem;
+  font-size: 0.8rem;
   opacity: 0.7;
 }
 
-/* User-Bereich rechts */
+nav a {
+  text-decoration: none;
+  margin: 0 10px;
+}
+
 .nav-user {
+  width: 150px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 1.5rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding-right: 15px;
 }
 
 .nav-user a {
-  color: var(--text-gold);
-  text-decoration: none;
+  color: var(--color-yellow);
   font-size: 1.2rem;
-  -webkit-transition: color 0.3s ease;
-  transition: color 0.3s ease;
 }
 
 .nav-user a:hover {
-  color: var(--text-hover);
+  color: var(--color-accent);
 }
 
-/* Kleiner Fix für den restlichen Content der Seite, 
-   damit er nicht unter der fixierten Navi verschwindet */
-body {
-  margin: 0;
-  padding-top: 100px;
+.logout-btn {
+  background-color: var(--color-surface-light);
+  padding: 8px 16px;
+  margin-right: 10px;
+  border-radius: 4px;
+  color: var(--color-light);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  -webkit-transition: background-color 0.2s ease, -webkit-transform 0.1s ease;
+  transition: background-color 0.2s ease, -webkit-transform 0.1s ease;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  transition: background-color 0.2s ease, transform 0.1s ease, -webkit-transform 0.1s ease;
+}
+
+.nav-brand {
+  width: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.logout-btn:hover {
+  background-color: var(--color-accent);
+  color: var(--color-background) !important;
 }
 
 :root {
-  --headline-font: "Cinzel", serif;
-  --body-font: "Inter", sans-serif;
+  --color-background: #1f1914;
+  --color-surface-transparent: rgba(46, 37, 31, 0.8);
+  --color-surface: #2e251f;
+  --color-surface-light: #5a5959;
+  --color-accent: #e65f2b;
+  --color-accent-light: #ff7f50;
+  --color-accent-dark: #492113;
+  --color-light: #eaddca;
+  --color-light-transparent: rgba(234, 221, 202, 0.8);
+  --color-yellow: #ffdd57;
+  --silver-bright: #8a8a8a;
+  --silver-dark: #4a4a4a;
+  --shadow-left-right: 4px 4px 10px var(--color-background);
+  --shadow-top-bottom: 2px 2px 8px var(--color-background);
+}
+
+.color-background {
+  color: var(--color-background);
+}
+
+.bg-color-background {
+  background-color: var(--color-background);
+}
+
+.color-surface {
+  color: var(--color-surface);
+}
+
+.bg-color-surface {
+  background-color: var(--color-surface);
+}
+
+.color-accent {
+  color: var(--color-accent);
+}
+
+.bg-color-accent {
+  background-color: var(--color-accent);
+}
+
+.color-text {
+  color: var(--color-light);
+}
+
+.bg-color-text {
+  background-color: var(--color-text);
+}
+
+.color-dark {
+  color: var(--color-dark);
+}
+
+.bg-color-dark {
+  background-color: var(--color-dark);
+}
+
+.search-container {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.search-container input {
+  width: 60%;
+  padding: 15px;
+  font-size: 1.2em;
+  font-family: var(--body-font);
+  background-color: var(--color-light);
+  border: 3px solid var(--color-accent-dark);
+  border-radius: 5px;
+  -webkit-box-shadow: var(--shadow-top-bottom);
+          box-shadow: var(--shadow-top-bottom);
+}
+
+.npc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.card-image-container {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  border: 3px solid var(--color-accent-dark);
+  border-radius: 10px;
+  margin-bottom: 15px;
+  background-color: var(--color-light);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.npc-card:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  background-color: var(--color-light);
+}
+
+.npc-card {
+  background-color: var(--color-light-transparent);
+  border: 3px solid var(--color-accent-dark);
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  cursor: pointer;
+  -webkit-box-shadow: var(--shadow-left-right);
+          box-shadow: var(--shadow-left-right);
+  -webkit-transition: background-color 0.2s, -webkit-transform 0.2s;
+  transition: background-color 0.2s, -webkit-transform 0.2s;
+  transition: transform 0.2s, background-color 0.2s;
+  transition: transform 0.2s, background-color 0.2s, -webkit-transform 0.2s;
+}
+
+.card-image-placeholder,
+.modal-image-placeholder {
+  color: var(--color-light);
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: "Cinzel", serif;
+  border: 2px solid var(--color-accent-dark);
+  margin-bottom: 15px;
+}
+
+.card-name {
+  margin-bottom: 0;
 }
 
 /* ######################## Modal design ########################## */
 /* 1. Der Haupt-Hintergrund (Das Modal an sich) */
 .modal {
-  display: none; /* Startet komplett unsichtbar! */
-  position: fixed; /* Bleibt fest an Ort und Stelle, auch beim Scrollen */
-  z-index: 1000; /* Liegt wie eine Schicht über ALLEM anderen */
+  display: none;
+  /* Startet komplett unsichtbar! */
+  position: fixed;
+  /* Bleibt fest an Ort und Stelle, auch beim Scrollen */
+  z-index: 1000;
+  /* Liegt wie eine Schicht über ALLEM anderen */
   left: 0;
   top: 0;
-  width: 100%; /* Streckt sich über den ganzen Bildschirm */
+  width: 100%;
+  /* Streckt sich über den ganzen Bildschirm */
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6); /* Schwarzer, leicht durchsichtiger Schleier */
-  overflow: auto; /* Falls der Bildschirm zu klein ist, wird scrollbar */
+  background-color: rgba(0, 0, 0, 0.6);
+  /* Schwarzer, leicht durchsichtiger Schleier */
+  overflow: auto;
+  /* Falls der Bildschirm zu klein ist, wird scrollbar */
 }
 
 /* 2. Die Akte (Das Inhaltsfenster) */
 .modal-content {
-  background-color: #fdf5e6; /* Deine Pergament-Farbe */
-  margin: 10% auto; /* 10% Abstand von oben, horizontal zentriert */
+  background-color: #fdf5e6;
+  /* Deine Pergament-Farbe */
+  margin: 10% auto;
+  /* 10% Abstand von oben, horizontal zentriert */
   padding: 25px;
-  border: 2px solid #8d6e63; /* DnD-brauner Rahmen */
+  border: 2px solid #8d6e63;
+  /* DnD-brauner Rahmen */
   width: 80%;
-  max-width: 600px; /* Wird niemals breiter als 600px */
+  max-width: 600px;
+  /* Wird niemals breiter als 600px */
   border-radius: 12px;
-  position: relative; /* Wichtig für die Positionierung des X-Buttons */
+  position: relative;
+  /* Wichtig für die Positionierung des X-Buttons */
   -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
           box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
@@ -368,7 +576,8 @@ body {
 }
 
 .close-btn:hover {
-  color: #3e2723; /* Wird dunkler, wenn man mit der Maus drüber fährt */
+  color: #3e2723;
+  /* Wird dunkler, wenn man mit der Maus drüber fährt */
 }
 
 /* 4. Layout innerhalb des Modals (Bild neben den Stats) */
@@ -389,8 +598,10 @@ body {
   width: 100px;
   height: 100px;
   -o-object-fit: cover;
-     object-fit: cover; /* Bild wird perfekt quadratisch zugeschnitten */
-  border-radius: 50%; /* Macht das Bild rund, wie ein Token */
+     object-fit: cover;
+  /* Bild wird perfekt quadratisch zugeschnitten */
+  border-radius: 50%;
+  /* Macht das Bild rund, wie ein Token */
   border: 2px solid #8d6e63;
 }
 
@@ -430,6 +641,11 @@ body {
 
 .btn-edit-profile:hover {
   background-color: #5d4037;
+}
+
+:root {
+  --headline-font: "Cinzel", serif;
+  --body-font: "Inter", sans-serif;
 }
 
 /* 1. Den hässlichen Punkt verstecken */

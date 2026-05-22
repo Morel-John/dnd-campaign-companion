@@ -1,12 +1,11 @@
 <script src="assets/js/npc_search.js" defer></script>
 <script src="assets/js/npc_profile.js" defer></script>
 
-<div class="search-bar" style="margin: 20px 0;">
-    <input type="text" id="searchInput" placeholder="<?= t('search_placeholder') ?>" style="width: 100%; padding: 10px;">
+<div class="search-container">
+    <input type="text" id="searchInput" placeholder="<?= t('search_placeholder') ?>">
 </div>
 
-<div class="npc-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 20px;">
-
+<div class="npc-grid">
     <?php if (empty($npcs)): ?>
         <p>Keine NPCs gefunden. Zeit, welche zu erschaffen!</p>
     <?php else: ?>
@@ -31,14 +30,12 @@
                 data-alignment="<?= e($npc['alignmentname'] ?? '') ?>"
                 data-status="<?= e($npc['statusname'] ?? '') ?>"
                 data-image="<?= !empty($npc['image']) ? e($npc['image']) : 'assets/img/npc/default.png' ?>"
-                data-size="<?= e($npc['sizename'] ?? '') ?>"
-                style="border: 1px solid #ccc; padding: 10px; text-align: center; border-radius: 8px;">
-                <div class="image-placeholder">
-                    <span style="font-size: 2rem;"><img style="width:50px" src="<?= e($npc['image'] ?? BASE_PATH . '/public/assets/img/npc/default.png') ?>"> </span>
+                data-size="<?= e($npc['sizename'] ?? '') ?>">
+                <div class="card-image-container">
+                    <span><img class="card-image" src="<?= e($npc['image'] ?? BASE_PATH . '/public/assets/img/npc/default.png') ?>"> </span>
                 </div>
-                <strong style="display: block; margin-bottom: 5px;">
-                    <?= e($npc['npcname']) ?>
-                </strong>
+                <h3 class="card-name"><?= e($npc['npcname'])  ?></h3>
+
             </div>
         <?php endforeach; ?>
     <?php endif; ?>

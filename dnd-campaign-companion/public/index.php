@@ -161,3 +161,7 @@ switch ($page) {
   default:
     echo "<h1> 404 - Dungeon not found!</h1>";
 }
+if ($page !== 'login') {
+  ## Footer
+  require_once __DIR__ . '/../app/Views/footer.php'; 
+}

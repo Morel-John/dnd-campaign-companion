@@ -1,89 +1,40 @@
-nav {
-    background: var(--color-surface);
-    // box-shadow: 0 4px 15px var(--color-accent-light);
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
+@import '_color';
+
+// Little change to the body element to add padding-top equal to the height of the header
+body {
+  margin: 0;
+  padding-top: 100px;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-}
-// ################################################################
-// ################################################################
-// ################################################################
-// ################################################################
-// ################################################################
-.nav-breaker{
-    background-image: url('../img/rune.png');
-    height: 5px;
-    display:block;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.lang-switch {
-    font-size: 0.8rem;
-}
-/* Google Fonts importieren für den authentischen Look */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500&display=swap');
-
-:root {
-  /* Farbpalette basierend auf deinem Design */
-  --nav-bg: #1e1b18;          /* Dunkles, warmes Anthrazit/Stahl */
-  --nav-border: #3a322d;      /* Etwas hellerer Metallrand */
-  --text-gold: #d4a373;       /* Das edle Altgold für die Schrift */
-  --text-hover: #e65f2b;      /* Das warme Orange aus Option 3 für Hover-Effekte */
-  --rune-color: #5a4e46;      /* Dezentes, verblasstes Braun für die Trenn-Runen */
-}
-
-/* Die Hauptleiste */
-.dungeon-navbar {
+.nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 3rem;
   height: 100px;
-  background: linear-gradient(180deg, var(--nav-bg) 0%, #141210 100%);
-  border-bottom: 3px solid var(--nav-border);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
-  font-family: 'Cinzel', serif;
-  position: fixed; /* Bleibt beim Scrollen oben */
+  background: linear-gradient(90deg, var(--color-surface) 0%, var(--color-accent-dark) 50%, var(--color-surface) 100%);
+  box-shadow: 0 4px 15px var(--color-surface-transparent);
+  font-family: var(--headline-font);
+  //  Fix the header to the top of the page while scrolling
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  box-sizing: border-box;
   z-index: 1000;
 }
 
-/* Logo-Bereich links */
-.nav-brand .brand-logo {
-  font-size: 1.5rem;
-  color: var(--text-gold);
-  text-shadow: 0 0 8px rgba(212, 163, 115, 0.4);
-  cursor: pointer;
+.nav li {
+  list-style: none;
 }
 
-/* Navigations-Links in der Mitte */
+// Navigation Link-box
 .nav-links {
   display: flex;
-  list-style: none;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-links li {
-  display: flex;
   align-items: center;
 }
 
+// Navigation Links
 .nav-links a {
-  color: var(--text-gold);
+  color: var(--color-yellow);
   text-decoration: none;
   text-transform: uppercase;
   font-size: 1.2rem;
@@ -91,45 +42,233 @@ nav a {
   letter-spacing: 0.12em;
   padding: 0 0.8rem;
   transition: all 0.3s ease;
-//   text-shadow: 1px 1px 2px var(--color-accent-light);
 }
 
-/* Hover-Effekt: Text leuchtet leicht orange auf */
-.nav-links a:hover, 
+// Hover-effects for navigation links
+.nav-links a:hover,
 .nav-links a.active {
-  color: var(--text-hover);
-  text-shadow: 0 0 10px rgba(230, 95, 43, 0.5);
+  color: var(--color-accent);
+  text-shadow: 0 0 2px var(--color-accent-light);
 }
 
-/* Die Runen-Trennstriche (Divider) */
+// Silver Stripes top
+.nav::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, var(--silver-dark) 0%, var(--silver-bright) 30%, var(--silver-dark) 100%);
+  box-shadow: 0 4px 15px var(--color-surface-transparent);
+  border-bottom: 1px solid var(--color-background);
+}
+
+// Silver Stripes bottom
+.nav::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, var(--silver-dark) 0%, var(--silver-bright) 80%, var(--silver-dark) 100%);
+  box-shadow: 0 -13px 15px var(--color-surface-transparent);
+  border-top: 1px solid var(--color-background);
+}
+
+// Divider between nav links
 .nav-links .divider {
-  color: var(--rune-color);
-  font-size: 0.8rem;
-  user-select: none;
   padding: 0 0.2rem;
+  font-size: 0.8rem;
   opacity: 0.7;
 }
 
-/* User-Bereich rechts */
+// Nav right side user area
+nav a {
+  text-decoration: none;
+  margin: 0 10px;
+}
+
 .nav-user {
+  // fixed width to center nav
+  width: 150px;
   display: flex;
-  gap: 1.5rem;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 15px;
 }
 
 .nav-user a {
-  color: var(--text-gold);
-  text-decoration: none;
+  color: var(--color-yellow);
   font-size: 1.2rem;
-  transition: color 0.3s ease;
 }
 
 .nav-user a:hover {
-  color: var(--text-hover);
+  color: var(--color-accent);
 }
 
-/* Kleiner Fix für den restlichen Content der Seite, 
-   damit er nicht unter der fixierten Navi verschwindet */
-body {
-  margin: 0;
-  padding-top: 100px; 
+.logout-btn {
+  background-color: var(--color-surface-light); 
+  padding: 8px 16px; 
+  margin-right: 10px;
+  border-radius: 4px; 
+  color: var(--color-light);
+  text-decoration: none; 
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease, transform 0.1s ease;
 }
+.nav-brand{
+  // fixed width to center nav
+  width: 150px;
+  display: flex;
+}
+.logout-btn:hover {
+  background-color: var(--color-accent);
+  color: var(--color-background)!important; 
+}
+// ################################################################
+// ################################################################
+// ################################################################
+// ################################################################
+// ######################## ON ICE ################################
+// Language switcher
+// .lang-switch {
+//   color: var(--color-yellow);
+//   transition: color 0.3s ease;
+//   font-size: 1.2rem;
+// }
+
+// /* Rechter Bereich der Navbar */
+// .nav-user {
+//   display: flex;
+//   align-items: center;
+//   gap: 1.5rem;
+// }
+
+// /* Versteckt die echte Checkbox komplett */
+// .settings-toggle-checkbox {
+//   display: none;
+// }
+
+// /* Container für das Einstellungs-Menü */
+// .settings-container {
+//   position: relative;
+//   display: flex;
+//   align-items: center;
+// }
+
+// /* Der Burger-Button (jetzt als Label) */
+// .settings-burger {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+//   width: 25px;
+//   height: 20px;
+//   padding: 0;
+//   cursor: pointer;
+//   z-index: 1001;
+// }
+
+// .settings-burger span {
+//   display: block;
+//   width: 100%;
+//   height: 3px;
+//   background-color: var(--color-yellow);
+//   border-radius: 2px;
+//   transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+// }
+
+// .settings-burger:hover span {
+//   background-color: var(--color-accent);
+// }
+
+// /* LOGIK: Wenn die Checkbox aktiv ist, wird der Burger zum 'X' */
+// .settings-toggle-checkbox:checked + .settings-burger span:nth-child(1) {
+//   transform: translateY(8.5px) rotate(45deg);
+// }
+// .settings-toggle-checkbox:checked + .settings-burger span:nth-child(2) {
+//   opacity: 0;
+// }
+// .settings-toggle-checkbox:checked + .settings-burger span:nth-child(3) {
+//   transform: translateY(-8.5px) rotate(-45deg);
+// }
+
+// /* Das Dropdown-Menü */
+// .settings-dropdown {
+//   position: absolute;
+//   top: 45px;
+//   right: 0;
+//   background: #24211e;
+//   border: 2px solid var(--color-surface);
+//   box-shadow: 0 10px 25px rgba(0,0,0,0.7), inset 0 0 10px rgba(0,0,0,0.5);
+//   border-radius: 6px;
+//   padding: 1.2rem;
+//   min-width: 200px;
+//   display: none; /* Standardmäßig zu */
+//   flex-direction: column;
+//   gap: 0.8rem;
+//   z-index: 1000;
+// }
+
+// /* LOGIK: Wenn die Checkbox aktiv ist, zeige das Dropdown-Menü an */
+// .settings-toggle-checkbox:checked ~ .settings-dropdown {
+//   display: flex;
+//   animation: fadeInDown 0.2s ease forwards;
+// }
+
+// /* Ab hier bleibt dein restliches Styling identisch (Dropdown-Inhalte) */
+// .dropdown-user-info {
+//   font-family: 'Inter', sans-serif;
+//   font-size: 0.95rem;
+//   color: #b5b5b5;
+//   font-weight: 500;
+// }
+
+// .dropdown-divider {
+//   height: 1px;
+//   background-color: var(--color-surface);
+//   margin: 0.2rem 0;
+// }
+
+// .dropdown-label {
+//   font-size: 0.8rem;
+//   color: #7a7067;
+//   text-transform: uppercase;
+//   letter-spacing: 0.05em;
+// }
+
+// .dropdown-lang-switch {
+//   display: flex;
+//   align-items: center;
+//   gap: 0.8rem;
+//   font-size: 1.1rem;
+// }
+
+// .dropdown-lang-switch a {
+//   color: var(--color-yellow);
+//   text-decoration: none;
+//   transition: color 0.2s ease;
+// }
+
+// .dropdown-lang-switch a:hover,
+// .dropdown-lang-switch a.active-lang {
+//   color: var(--color-accent);
+//   font-weight: bold;
+// }
+
+// .dropdown-lang-switch span {
+//   color: var(--color-surface);
+// }
+
+// @keyframes fadeInDown {
+//   from {
+//     opacity: 0;
+//     transform: translateY(-10px);
+//   }
+//   to {
+//     opacity: 1;
+//     transform: translateY(0);
+//   }
+// }

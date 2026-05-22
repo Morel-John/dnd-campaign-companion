@@ -7,12 +7,19 @@
 
     --color-accent: #e65f2b;
     --color-accent-light: #ff7f50;
+    --color-accent-dark: #492113;
 
     --color-light: #eaddca;
+    --color-light-transparent: rgba(234, 221, 202, 0.8);
 
     --color-yellow: #ffdd57;
-    // Do I need more? 
-    --color-dark: #301804;
+    // Silver tones for header stripes
+    --silver-bright: #8a8a8a;
+    --silver-dark: #4a4a4a;
+
+    // Boxshadows
+    --shadow-left-right: 4px 4px 10px  var(--color-background);
+    --shadow-top-bottom: 2px 2px 8px var(--color-background);
 }
 
 .color-background {

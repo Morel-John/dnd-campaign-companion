@@ -1,3 +1,12 @@
+<?php
+## Saving current page in variable
+$currentPage = isset($_GET['page']) ? $_GET['page'] : 'home';
+## Helper function to determine if a nav link is active
+function isActive($pageName, $currentPage)
+{
+    return $pageName === $currentPage ? 'active' : '';
+}
+?>
 <!DOCTYPE html>
 <html lang="$current_lang">
 
@@ -9,42 +18,54 @@
 </head>
 
 <body>
-    <nav class="dungeon-navbar">
-        <span class="nav-breaker">
-        </span>
+    <nav class="nav">
         <div class="nav-brand">
-            <span class="brand-logo">⚔️</span>
         </div>
 
         <ul class="nav-links">
-            <li><a href="index.php?page=home" class="active"><?= t('nav_home') ?></a></li>
-            <li class="divider">ᚠ</li>
-            <li><a href="index.php?page=npc_form"><?= t('nav_new_npc') ?></a></li>
-            <li class="divider">ᚠ</li>
-            <li><a href="index.php?page=quest_list"><?= t('nav_quests') ?></a></li>
-            <li class="divider">ᚠ</li>
-            <li><a href="index.php?page=race_detail"><?= t('nav_races') ?></a></li>
-            <li class="divider">ᚠ</li>
-            <li><a href="index.php?page=logbook"><?= t('nav_logbook') ?></a></li>
-            <li class="divider">ᚠ</li>
-            <li><a href="index.php?page=logbook_form"><?= t('nav_logbook_form') ?></a></li>
+            <!-- Navigation Links; using isActive function and translation function-->
+            <li><a href="index.php?page=home" class="<?= isActive('home', $currentPage) ?>"><?= t('nav_home') ?></a></li>
+            <li class="divider">🛡️</li>
+            <li><a href="index.php?page=npc_form" class="<?= isActive('npc_form', $currentPage) ?>"><?= t('nav_new_npc') ?></a></li>
+            <li class="divider">🛡️</li>
+            <li><a href="index.php?page=quest_list" class="<?= isActive('quest_list', $currentPage) ?>"><?= t('nav_quests') ?></a></li>
+            <li class="divider">🛡️</li>
+            <li><a href="index.php?page=race_detail" class="<?= isActive('race_detail', $currentPage) ?>"><?= t('nav_races') ?></a></li>
+            <li class="divider">🛡️</li>
+            <li><a href="index.php?page=logbook" class="<?= isActive('logbook', $currentPage) ?>"><?= t('nav_logbook') ?></a></li>
+            <li class="divider">🛡️</li>
+            <li><a href="index.php?page=logbook_form" class="<?= isActive('logbook_form', $currentPage) ?>"><?= t('nav_logbook_form') ?></a></li>
         </ul>
 
         <div class="nav-user">
-            <a href="#profile" class="user-icon" style="color: #b5b5b5; font-size: 0.7rem;">👤<?= e($_SESSION['username']) ?></a>
-            <a href="#settings" class="settings-icon">⚙️</a>
-            <div class="lang-switch">
-                <a href="?lang=de">DE</a> | <a href="?lang=en">EN</a>
-            </div>
-            <a href="index.php?action=logout"
-                style="background-color: #ff3860; padding: 6px 12px; border-radius: 4px; color: white; text-decoration: none; font-size: 0.9rem;">
+            <!-- <div class="settings-container">
+                <input type="checkbox" id="settings-toggle" class="settings-toggle-checkbox">
+
+                <label for="settings-toggle" class="settings-burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+
+                <div class="settings-dropdown">
+                    <div class="dropdown-user-info">
+                        👤 <?= e($_SESSION['username']) ?>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-label">Sprache / Language</div>
+                    <div class="dropdown-lang-switch">
+                        <a href="?lang=de" class="<?= 'de' ? 'active-lang' : '' ?>">DE</a>
+                        <span>|</span>
+                        <a href="?lang=en" class="<?= 'en' ? 'active-lang' : '' ?>">EN</a>
+                    </div>
+                </div>
+            </div> -->
+
+            <a href="index.php?action=logout" class="logout-btn">
                 Logout
             </a>
         </div>
     </nav>
-    <span class="nav-breaker">
-
-    </span>
 </body>
 
 </html>
